@@ -9,6 +9,7 @@ use MoonShine\ColorManager\Palettes\PurplePalette;
 use MoonShine\ColorManager\ColorManager;
 use MoonShine\Contracts\ColorManager\ColorManagerContract;
 use MoonShine\Contracts\ColorManager\PaletteContract;
+use MoonShine\AssetManager\Css;
 use App\MoonShine\Resources\Achievement\AchievementResource;
 use MoonShine\MenuManager\MenuGroup;
 use MoonShine\MenuManager\MenuItem;
@@ -26,6 +27,7 @@ use App\MoonShine\Resources\Video\VideoResource;
 use App\MoonShine\Resources\AboutStatic\AboutStaticResource;
 use App\MoonShine\Resources\TeacherStats\TeacherStatsResource;
 use App\MoonShine\Resources\ExamStats\ExamStatsResource;
+use MoonShine\Laravel\Components\Layout\Profile;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -38,6 +40,7 @@ final class MoonShineLayout extends AppLayout
     {
         return [
             ...parent::assets(),
+            Css::make('/css/admin-custom.css'),
         ];
     }
 
@@ -96,6 +99,12 @@ final class MoonShineLayout extends AppLayout
         ];
     }
 
+    protected function getProfileComponent(): Profile
+    {
+        return parent::getProfileComponent()
+            ->avatarPlaceholder('/image/yuksalish-maktabi-al-logo.jpeg');
+    }
+
     /**
      * @param ColorManager $colorManager
      */
@@ -104,5 +113,18 @@ final class MoonShineLayout extends AppLayout
         parent::colors($colorManager);
 
         // $colorManager->primary('#00000');
+    }
+
+    protected function getFooterCopyright(): string
+    {
+        return \sprintf(
+            '&copy; %d Yuksalish Maktabi',
+            (int) date('Y')
+        );
+    }
+
+    protected function getFooterMenu(): array
+    {
+        return [];
     }
 }

@@ -1,747 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Jizzax Shahar Yuksalish maktabi</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
-    />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+<x-header></x-header>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'unipix-blue': '#161179',
-            'unipix-light': '#2a2a9e',
-            'unipix-dark': '#0c0950',
-            'turin-green': '#16A34A',
-            'turin-dark': '#003366',
-          },
-          fontFamily: {
-            'serif': ['Playfair Display', 'serif'],
-            'sans': ['Poppins', 'sans-serif'],
-          },
-          boxShadow: {
-            'elegant': '0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-          }
-        }
-      }
+<div x-data="{ 
+    profileModal: { show: false, person: {} },
+    openProfile(data) {
+        this.profileModal.person = data;
+        this.profileModal.show = true;
+        document.body.style.overflow = 'hidden';
+    },
+    closeProfile() {
+        this.profileModal.show = false;
+        document.body.style.overflow = '';
     }
-  </script>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-    .hero-text-shadow {
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-    .gradient-overlay {
-      background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(22,17,121,0.7) 100%);
-    }
-    .btn-glow:hover {
-      box-shadow: 0 0 15px rgba(22, 17, 121, 0.6);
-    }
-    .nav-indicator::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 3px;
-      background-color: #161179;
-      transition: width 0.3s ease;
-    }
-    .nav-indicator:hover::after {
-      width: 70%;
-    }
-    .active-nav::after {
-      width: 70%;
-    }
-
-    /* Team slider styles */
-    .slides2 {
-      display: flex;
-      gap: 24px;
-      width: max-content;
-    }
-    .slider2 {
-      overflow: hidden;
-    }
-    .slider2 .slides2 > div {
-      flex-shrink: 0;
-      min-width: auto;
-      max-width: 240px;
-    }
-
-    /* Main Slider */
-    .main-slider {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
-    .main-slides {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.5s ease-in-out;
-    }
-    .main-slide {
-      flex: 0 0 100%;
-      position: relative;
-    }
-
-    /* Footer styles */
-    .footer {
-      background-color: #003366;
-      color: white;
-    }
-    .footer i {
-      margin-right: 8px;
-    }
-    .footer a:hover {
-      color: #cfcfcf;
-    }
-  </style>
-    <style>
-        .stat-box {
-            transition: transform 0.3s ease-in-out;
-        }
-        .stat-box:hover {
-            transform: scale(1.05);
-        }
-
-        /* Team Slider Styles */
-        .slider-container {
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-        }
-
-        .slider-images {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            padding: 2rem;
-        }
-
-        .slider-img {
-            position: relative;
-            height: 450px;
-            width: 300px;
-            border-radius: 20px;
-            overflow: hidden;
-            cursor: pointer;
-            flex-shrink: 0;
-            transition: all 0.5s ease;
-            opacity: 0.6;
-            transform: scale(0.9);
-        }
-
-        .slider-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .slider-img h1 {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: white;
-            font-size: 24px;
-            opacity: 0;
-            transition: all 0.5s ease;
-            z-index: 1;
-        }
-
-        .slider-img .details {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: all 0.5s ease;
-        }
-
-        .slider-img.active {
-            opacity: 1;
-            transform: scale(1);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-        }
-
-        .slider-img.active h1 {
-            opacity: 1;
-        }
-
-        .slider-img:hover .details {
-            opacity: 1;
-        }
-
-        .slider-controls {
-            position: absolute;
-            bottom: 30px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .slider-controls button {
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .slider-controls button:hover {
-            background: white;
-            color: black;
-        }
-
-        .slider-dots {
-            display: flex;
-            gap: 8px;
-            margin-top: 20px;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active {
-            background: white;
-            transform: scale(1.3);
-        }
-
-        .spoon-icon {
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        .favorite-spoon {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 6px 12px;
-            border-radius: 20px;
-            margin-top: 8px;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-        }
-
-        .spoon-collection {
-            position: absolute;
-            bottom: 80px;
-            left: 0;
-            right: 0;
-            text-align: center;
-        }
-
-        .spoon-collection img {
-            display: inline-block;
-            height: 40px;
-            margin: 0 5px;
-            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
-            transition: all 0.3s ease;
-        }
-
-        .spoon-collection img:hover {
-            transform: rotate(30deg) scale(1.2);
-        }
-
-        @media (max-width: 768px) {
-            .slider-img {
-                height: 350px;
-                width: 250px;
-            }
-        }
-    </style>
-    <style>
-        :root {
-            --primary-color: #0a4480;
-            --secondary-color: #1a6cb4;
-            --text-color: #333;
-            --light-bg: #f5f7fa;
-            --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light-bg);
-            color: var(--text-color);
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 1rem 0;
-            box-shadow: var(--shadow);
-            position: relative;
-            z-index: 1000;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo img {
-            height: 60px;
-            width: auto;
-        }
-
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-
-        /* Hamburger Menu Button */
-        .mobile-menu-btn {
-            display: none;
-            background: transparent;
-            border: none;
-            color: var(--white);
-            font-size: 1.8rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            z-index: 1002;
-            transition: all 0.3s ease;
-            position: relative;
-            width: 40px;
-            height: 40px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .mobile-menu-btn:hover {
-            opacity: 0.8;
-            transform: scale(1.1);
-        }
-
-        .mobile-menu-btn .menu-icon,
-        .mobile-menu-btn .close-icon {
-            position: absolute;
-            transition: all 0.3s ease;
-            font-size: 1.5rem;
-        }
-
-        .mobile-menu-btn .close-icon {
-            opacity: 0;
-            transform: rotate(90deg);
-        }
-
-        .mobile-menu-btn.active .menu-icon {
-            opacity: 0;
-            transform: rotate(90deg);
-        }
-
-        .mobile-menu-btn.active .close-icon {
-            opacity: 1;
-            transform: rotate(0deg);
-        }
-
-        nav {
-            position: relative;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
-            display: block;
-        }
-
-        nav a:hover {
-            color: #b8d8ff;
-        }
-
-        .lang-switcher {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .lang-switcher a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .gallery-section {
-            padding: 3rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-            font-size: 2rem;
-            position: relative;
-        }
-
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background-color: var(--secondary-color);
-        }
-
-        .main-slider {
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .main-slider .slide {
-            position: relative;
-            height: 500px;
-        }
-
-        .main-slider img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .slide-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-            color: white;
-            padding: 1.5rem;
-        }
-
-        .slide-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .nav-slider .slide {
-            height: 100px;
-            margin: 0 10px;
-            cursor: pointer;
-            border-radius: 4px;
-            overflow: hidden;
-            opacity: 0.6;
-            transition: all 0.3s ease;
-        }
-
-        .nav-slider .slide:hover,
-        .nav-slider .slick-current .slide {
-            opacity: 1;
-            transform: scale(1.05);
-        }
-
-        .nav-slider img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .gallery-categories {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .category-btn {
-            background-color: var(--white);
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .category-btn:hover,
-        .category-btn.active {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
-
-        .slick-prev, .slick-next {
-            z-index: 1;
-            width: 40px;
-            height: 40px;
-        }
-
-        .slick-prev {
-            left: 15px;
-        }
-
-        .slick-next {
-            right: 15px;
-        }
-
-        .slick-prev:before, .slick-next:before {
-            font-size: 30px;
-        }
-
-        /* Mobile Navigation Styles */
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: flex;
-            }
-
-            header {
-                position: relative;
-            }
-
-            nav {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                width: 100%;
-                background-color: var(--primary-color);
-                transform: translateY(-100%);
-                transition: transform 0.4s ease-in-out;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-                z-index: 1001;
-                padding-top: 80px;
-                padding-bottom: 2rem;
-                max-height: 100vh;
-                overflow-y: auto;
-            }
-
-            nav.active {
-                transform: translateY(0);
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 0;
-                padding: 0 1rem;
-            }
-
-            nav ul li {
-                width: 100%;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-
-            nav ul li:last-child {
-                border-bottom: none;
-            }
-
-            nav a {
-                padding: 1rem;
-                font-size: 1.1rem;
-                width: 100%;
-            }
-
-            .logo {
-                flex: 1;
-                min-width: 0;
-            }
-
-            .logo img {
-                height: 50px;
-                width: auto;
-            }
-
-            .logo-text {
-                font-size: 0.9rem;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-            }
-
-            .header-content {
-                gap: 1rem;
-            }
-
-            .main-slider .slide {
-                height: 350px;
-            }
-
-            .nav-slider .slide {
-                height: 70px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo-text {
-                font-size: 0.75rem;
-            }
-
-            .logo img {
-                height: 40px;
-            }
-
-            .container {
-                padding: 0 0.5rem;
-            }
-
-            .mobile-menu-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 1.5rem;
-            }
-
-            nav {
-                padding-top: 70px;
-            }
-
-            nav a {
-                font-size: 1rem;
-                padding: 0.875rem;
-            }
-        }
-    </style>
-</head>
-<body x-data @keydown.escape.window="$store.modal?.showModal = false">
-  <!-- Navigation Bar -->
-  <header>
-      <div class="container">
-          <div class="header-content">
-              <div class="logo">
-                  <img style="border-radius: 500px" src="/image/yuksalish-maktabi-al-logo.jpeg" alt="yuksalish-maktabi-al-logo.jpeg">
-                  <div class="logo-text">Jizzax Shahar Yuksalish Maktabi</div>
-              </div>
-              <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-                  <i class="fas fa-bars menu-icon"></i>
-                  <i class="fas fa-times close-icon"></i>
-              </button>
-              <nav id="mainNav">
-                  <ul>
-                      <li><a href="{{route('home')}}">Home</a></li>
-                      <li><a href="{{route('about')}}">Maktab haqida</a></li>
-                      <!-- <li><a href="{{route('photo')}}">Yangiliklar</a></li> -->
-                      <li><a href="{{route('teachers')}}">O'qituvchilar</a></li>
-                      <li><a href="{{route('subject')}}">Dars jarayonlari</a></li>
-                      <li><a href="{{route('achievements')}}">Yutuqlar</a></li>
-                      <li><a href="{{route('contact')}}">Aloqa</a></li>
-                  </ul>
-              </nav>
-          </div>
-      </div>
-  </header>
-
-  <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-          const mainNav = document.getElementById('mainNav');
-          const navLinks = mainNav.querySelectorAll('a');
-
-          // Toggle menu on hamburger click
-          mobileMenuBtn.addEventListener('click', function() {
-              mainNav.classList.toggle('active');
-              mobileMenuBtn.classList.toggle('active');
-              // Prevent body scroll when menu is open
-              if (mainNav.classList.contains('active')) {
-                  document.body.style.overflow = 'hidden';
-              } else {
-                  document.body.style.overflow = '';
-              }
-          });
-
-          // Close menu when clicking on a link (mobile)
-          navLinks.forEach(link => {
-              link.addEventListener('click', function() {
-                  if (window.innerWidth <= 768) {
-                      mainNav.classList.remove('active');
-                      mobileMenuBtn.classList.remove('active');
-                      document.body.style.overflow = '';
-                  }
-              });
-          });
-
-          // Close menu when clicking outside (mobile)
-          document.addEventListener('click', function(event) {
-              const isClickInsideNav = mainNav.contains(event.target);
-              const isClickOnButton = mobileMenuBtn.contains(event.target);
-
-              if (window.innerWidth <= 768 && !isClickInsideNav && !isClickOnButton && mainNav.classList.contains('active')) {
-                  mainNav.classList.remove('active');
-                  mobileMenuBtn.classList.remove('active');
-                  document.body.style.overflow = '';
-              }
-          });
-
-          // Handle window resize
-          window.addEventListener('resize', function() {
-              if (window.innerWidth > 768) {
-                  mainNav.classList.remove('active');
-                  mobileMenuBtn.classList.remove('active');
-                  document.body.style.overflow = '';
-              }
-          });
-      });
-  </script>
+}" @keydown.escape.window="closeProfile()">
 
   <!-- Hero Slider Section -->
   <section class="main-slider">
@@ -749,42 +19,42 @@
       <!-- Slide 1 -->
       <div class="main-slide">
         <img src="/image/orig.jpeg" alt="Campus Building" class="w-full h-full object-cover">
-        <div class="absolute inset-0 gradient-overlay flex flex-col items-center justify-center text-white">
-          <p class="text-white mb-4 flex items-center font-light tracking-widest uppercase text-sm">
+        <div class="absolute inset-0 gradient-overlay flex flex-col items-center justify-center text-white p-6">
+          <p class="text-white mb-4 flex items-center font-light tracking-widest uppercase text-xs md:text-sm">
             <span class="mr-2"><i class="fas fa-graduation-cap"></i></span>
               bilim innovatsiyaga yo‘li
           </p>
-            <h3 class="text-5xl md:text-6xl font-serif mb-10 text-center hero-text-shadow">Jizzax Shahar Yuksalish maktabi bilan</h3>
-            <h2 class="text-6xl md:text-7xl font-serif mb-4 text-center hero-text-shadow font-bold">Kelajagingni kashf et</h2>
-          <p class="text-lg max-w-2xl text-center mb-12 font-light">Zehinlilarni tarbiyalaymiz, yetakchilarni voyaga yetkazamiz. Bugunoq jonli va faol akademik hamjamiyatimizga qo‘shiling.</p>
+            <h3 class="text-3xl md:text-5xl lg:text-6xl font-serif mb-6 md:mb-10 text-center hero-text-shadow">Jizzax Shahar Yuksalish maktabi bilan</h3>
+            <h2 class="text-4xl md:text-6xl lg:text-7xl font-serif mb-4 text-center hero-text-shadow font-bold">Kelajagingni kashf et</h2>
+          <p class="text-base md:text-lg max-w-2xl text-center mb-10 md:mb-12 font-light">Zehinlilarni tarbiyalaymiz, yetakchilarni voyaga yetkazamiz. Bugunoq jonli va faol akademik hamjamiyatimizga qo‘shiling.</p>
         </div>
       </div>
 
       <!-- Slide 2 -->
       <div class="main-slide">
         <img src="/image/photo_1_2025-03-24_00-16-14.jpg" alt="Student Life" class="w-full h-full object-cover">
-        <div class="absolute inset-0 gradient-overlay flex flex-col items-center justify-center text-white">
-          <p class="text-white mb-4 flex items-center font-light tracking-widest uppercase text-sm">
+        <div class="absolute inset-0 gradient-overlay flex flex-col items-center justify-center text-white p-6">
+          <p class="text-white mb-4 flex items-center font-light tracking-widest uppercase text-xs md:text-sm">
             <span class="mr-2"><i class="fas fa-users"></i></span>
               Birlik va mukammallik
           </p>
-            <h3 class="text-5xl md:text-6xl font-serif mb-10 text-center hero-text-shadow">Biz bilan</h3>
-            <h2 class="text-6xl md:text-7xl font-serif mb-4 text-center hero-text-shadow font-bold">O‘z ishtiyoqingni angla</h2>
-          <p class="text-lg max-w-2xl text-center mb-12 font-light">Huradan tortib fanlargacha – bizning qo‘llab-quvvatlovchi muhitimizda o‘z yo‘lingizni toping.</p>
+            <h3 class="text-3xl md:text-5xl lg:text-6xl font-serif mb-6 md:mb-10 text-center hero-text-shadow">Biz bilan</h3>
+            <h2 class="text-4xl md:text-6xl lg:text-7xl font-serif mb-4 text-center hero-text-shadow font-bold">O‘z ishtiyoqingni angla</h2>
+          <p class="text-base md:text-lg max-w-2xl text-center mb-10 md:mb-12 font-light">Huradan tortib fanlargacha – bizning qo‘llab-quvvatlovchi muhitimizda o‘z yo‘lingizni find.</p>
         </div>
       </div>
 
       <!-- Slide 3 -->
       <div class="main-slide">
         <img src="/image/photo_6_2025-03-24_00-16-14.jpg" alt="Research Lab" class="w-full h-full object-cover">
-        <div class="absolute inset-0 gradient-overlay flex flex-col items-center justify-center text-white">
-          <p class="text-white mb-4 flex items-center font-light tracking-widest uppercase text-sm">
+        <div class="absolute inset-0 gradient-overlay flex flex-col items-center justify-center text-white p-6">
+          <p class="text-white mb-4 flex items-center font-light tracking-widest uppercase text-xs md:text-sm">
             <span class="mr-2"><i class="fas fa-microscope"></i></span>
               Tadqiqot va innovatsiya
           </p>
-          <h2 class="text-6xl md:text-7xl font-serif mb-4 text-center hero-text-shadow font-bold">Ertangi kuningni</h2>
-          <h3 class="text-5xl md:text-6xl font-serif mb-10 text-center hero-text-shadow">Bugun qur</h3>
-          <p class="text-lg max-w-2xl text-center mb-12 font-light">Zamonaviy jihozlangan infratuzilmamiz ilg‘or tadqiqotlar va innovatsiyalarni qo‘llab-quvvatlaydi.</p>
+          <h2 class="text-4xl md:text-6xl lg:text-7xl font-serif mb-4 text-center hero-text-shadow font-bold">Ertangi kuningni</h2>
+          <h3 class="text-3xl md:text-5xl lg:text-6xl font-serif mb-6 md:mb-10 text-center hero-text-shadow">Bugun qur</h3>
+          <p class="text-base md:text-lg max-w-2xl text-center mb-10 md:mb-12 font-light">Zamonaviy jihozlangan infratuzilmamiz ilg‘or tadqiqotlar va innovatsiyalarni qo‘llab-quvvatlaydi.</p>
         </div>
       </div>
     </div>
@@ -810,7 +80,7 @@
 
   <section class="py-20 bg-gray-50" x-data="{ showModal: false, imageUrl: '' }">
       <div class="container mx-auto px-4">
-          <h3 class="text-4xl font-extrabold text-blue-900 mb-12 text-center">Qabul Rasmlari</h3>
+          <h3 class="text-4xl font-extrabold text-blue-900 mb-12 text-center">Maktab jihozlari</h3>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10">
               @foreach($qabulrasmis as $rasm)
@@ -874,7 +144,18 @@
               <div class="swiper-wrapper">
                   @foreach($homes as $home)
                       <div class="swiper-slide">
-                          <div class="bg-white shadow-xl rounded-3xl p-6 text-center max-w-xs mx-auto hover:scale-105 transition-transform duration-300">
+                          <div @click="openProfile({ 
+                                    name: '{{$home->name}}', 
+                                    subject: '{{$home->subject}}', 
+                                    image: '{{ asset('storage/' . $home->image) }}',
+                                    bio: '{{ addslashes($home->bio) }}',
+                                    experience: '{{ $home->experience }}',
+                                    languages: '{{ $home->languages }}',
+                                    education: '{{ $home->education }}',
+                                    specialization: '{{ $home->specialization }}',
+                                    phone: '{{ $home->phone }}'
+                                })" 
+                               class="bg-white shadow-xl rounded-3xl p-6 text-center max-w-xs mx-auto hover:scale-105 transition-transform duration-300 cursor-pointer">
                               <div class="w-28 h-28 mx-auto mb-4">
                                   <img src="{{ asset('storage/' . $home->image) }}"
                                        class="w-full h-full object-cover rounded-full border-4 border-blue-200"
@@ -882,7 +163,7 @@
                               </div>
                               <h4 class="text-xl font-semibold text-blue-900">{{$home->name}}</h4>
                               <p class="text-blue-600 font-medium">{{$home->subject}}</p>
-                              <p class="text-gray-600 text-sm mt-2">{{$home->bio}}</p>
+                              <p class="text-gray-600 text-sm mt-2 line-clamp-2">{{$home->bio}}</p>
                           </div>
                       </div>
                   @endforeach
@@ -1019,5 +300,94 @@
       }
     });
   </script>
+
+  <!-- Profile Detail Modal -->
+  <div x-show="profileModal.show" 
+       x-transition:enter="transition ease-out duration-300"
+       x-transition:enter-start="opacity-0 scale-95"
+       x-transition:enter-end="opacity-100 scale-100"
+       x-transition:leave="transition ease-in duration-200"
+       x-transition:leave-start="opacity-100 scale-100"
+       x-transition:leave-end="opacity-0 scale-95"
+       class="fixed inset-0 z-[2000] flex items-center justify-center p-4 bg-black bg-opacity-50" 
+       x-cloak>
+      
+      <div @click.away="closeProfile()" class="bg-white rounded-[30px] md:rounded-[40px] shadow-2xl w-full max-w-5xl max-h-[90vh] md:max-h-none overflow-y-auto md:overflow-visible flex flex-col md:flex-row relative">
+          <!-- Close Button -->
+          <button @click="closeProfile()" class="absolute top-4 right-4 md:top-6 md:right-8 text-gray-400 hover:text-gray-600 z-[101] p-2 bg-gray-100 rounded-full transition-colors">
+              <i class="fas fa-times text-lg md:text-xl"></i>
+          </button>
+
+          <!-- Left Side - Profile Summary -->
+          <div class="w-full md:w-2/5 p-8 md:p-12 flex flex-col items-center justify-center bg-gray-50 bg-opacity-50 border-b md:border-b-0 md:border-r border-gray-100">
+              <div class="w-48 h-56 md:w-64 md:h-72 rounded-[30px] md:rounded-[40px] overflow-hidden shadow-lg mb-6 md:mb-8">
+                  <img :src="profileModal.person.image" class="w-full h-full object-cover" alt="">
+              </div>
+              <h3 x-text="profileModal.person.name" class="text-2xl md:text-3xl font-bold text-blue-900 mb-2 text-center px-4"></h3>
+              <div class="bg-blue-600 text-white px-5 py-1.5 md:px-6 md:py-2 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-4" x-text="profileModal.person.subject"></div>
+          </div>
+
+          <!-- Right Side - Details -->
+          <div class="w-full md:w-3/5 p-8 md:p-12">
+              <div class="mb-8 md:mb-10">
+                  <div class="flex items-center gap-2 mb-6">
+                      <div class="w-8 md:w-10 h-1 bg-yellow-400 rounded-full"></div>
+                      <h4 class="text-sm md:text-lg font-bold text-blue-900 uppercase tracking-widest">MA'LUMOTLAR</h4>
+                  </div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                      <div class="bg-blue-50 border border-blue-100 p-4 md:p-6 rounded-2xl md:rounded-3xl flex items-center gap-4">
+                          <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl md:rounded-2xl flex items-center justify-center text-blue-600 shadow-sm text-lg md:text-xl">
+                              <i class="fas fa-briefcase"></i>
+                          </div>
+                          <div>
+                              <p class="text-[9px] md:text-[10px] text-blue-400 uppercase font-bold tracking-wider mb-0.5 md:mb-1">TAJRIBA</p>
+                              <p class="text-sm md:text-blue-900 font-bold" x-text="profileModal.person.experience || 'Tajriba mavjud emas'"></p>
+                          </div>
+                      </div>
+                      <div class="bg-yellow-50 bg-opacity-50 border border-yellow-100 p-4 md:p-6 rounded-2xl md:rounded-3xl flex items-center gap-4">
+                          <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl md:rounded-2xl flex items-center justify-center text-yellow-600 shadow-sm text-lg md:text-xl">
+                              <i class="fas fa-language"></i>
+                          </div>
+                          <div>
+                              <p class="text-[9px] md:text-[10px] text-yellow-500 uppercase font-bold tracking-wider mb-0.5 md:mb-1">TILLAR</p>
+                              <p class="text-sm md:text-blue-900 font-bold" x-text="profileModal.person.languages || 'O\'zbek tili'"></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="mb-8 md:mb-10">
+                  <div class="flex items-center gap-2 mb-6">
+                      <div class="w-8 md:w-10 h-1 bg-blue-600 rounded-full"></div>
+                      <h4 class="text-sm md:text-lg font-bold text-blue-900 uppercase tracking-widest">BIOGRAFIYA</h4>
+                  </div>
+                  <p class="text-sm md:text-gray-600 leading-relaxed italic" x-text="profileModal.person.bio"></p>
+              </div>
+
+              <div class="flex flex-wrap gap-3 md:gap-4 mb-8 md:mb-10">
+                  <div class="flex items-center gap-2 md:gap-3 bg-gray-50 px-4 py-2.5 md:px-6 md:py-3 rounded-xl md:rounded-2xl border border-gray-100">
+                      <i class="fas fa-user-graduate text-blue-600 text-sm md:text-base"></i>
+                      <span class="text-xs md:text-sm font-medium text-gray-700" x-text="profileModal.person.education || 'Oliy ma\'lumotli'"></span>
+                  </div>
+                  <div class="flex items-center gap-2 md:gap-3 bg-gray-50 px-4 py-2.5 md:px-6 md:py-3 rounded-xl md:rounded-2xl border border-gray-100">
+                      <i class="fas fa-award text-yellow-600 text-sm md:text-base"></i>
+                      <span class="text-xs md:text-sm font-medium text-gray-700" x-text="profileModal.person.specialization || 'Toifali mutaxassis'"></span>
+                  </div>
+              </div>
+
+              <div x-show="profileModal.person.phone">
+                <a :href="'tel:' + profileModal.person.phone" class="inline-flex items-center justify-center w-full md:w-auto gap-3 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 md:py-4 rounded-2xl md:rounded-3xl font-bold transition-all shadow-lg text-sm md:text-base">
+                    <i class="fas fa-phone-alt"></i>
+                    Bog'lanish
+                </a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <style>
+      [x-cloak] { display: none !important; }
+  </style>
+
 </body>
 </html>

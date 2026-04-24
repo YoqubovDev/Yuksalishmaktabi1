@@ -40,6 +40,11 @@ class HomeSliderFormPage extends FormPage
                     ->disk('public')
                     ->allowedExtensions(['jpg', 'jpeg', 'png', 'webp']),
                 Textarea::make('Bio', 'bio')->nullable(),
+                Text::make('Tajriba', 'experience')->nullable(),
+                Text::make('Tillar', 'languages')->nullable(),
+                Text::make('Ma\'lumoti', 'education')->nullable(),
+                Text::make('Mutaxassislik', 'specialization')->nullable(),
+                Text::make('Telefon', 'phone')->nullable(),
             ]),
         ];
     }

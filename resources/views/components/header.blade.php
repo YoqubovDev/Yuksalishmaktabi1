@@ -6,6 +6,7 @@
     <title>Jizzax Shahar Yuksalish Maktabi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
@@ -83,6 +84,11 @@
             width: 100%;
             height: 100vh;
             overflow: hidden;
+        }
+        @media (max-width: 768px) {
+            .main-slider {
+                height: 70vh;
+            }
         }
         .main-slides {
             display: flex;
@@ -493,10 +499,11 @@
                 left: 0;
                 right: 0;
                 width: 100%;
-                background-color: var(--primary-color);
+                background-color: rgba(10, 68, 128, 0.95);
+                backdrop-filter: blur(10px);
                 transform: translateY(-100%);
-                transition: transform 0.4s ease-in-out;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
                 z-index: 1001;
                 padding-top: 80px;
                 padding-bottom: 2rem;
@@ -511,22 +518,47 @@
             nav ul {
                 flex-direction: column;
                 gap: 0;
-                padding: 0 1rem;
+                padding: 0 1.5rem;
             }
 
             nav ul li {
                 width: 100%;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.3s ease;
             }
 
-            nav ul li:last-child {
-                border-bottom: none;
+            nav.active ul li {
+                opacity: 1;
+                transform: translateY(0);
             }
+
+            /* Staggered animation for menu items */
+            nav.active ul li:nth-child(1) { transition-delay: 0.1s; }
+            nav.active ul li:nth-child(2) { transition-delay: 0.15s; }
+            nav.active ul li:nth-child(3) { transition-delay: 0.2s; }
+            nav.active ul li:nth-child(4) { transition-delay: 0.25s; }
+            nav.active ul li:nth-child(5) { transition-delay: 0.3s; }
+            nav.active ul li:nth-child(6) { transition-delay: 0.35s; }
+            nav.active ul li:nth-child(7) { transition-delay: 0.4s; }
 
             nav a {
-                padding: 1rem;
-                font-size: 1.1rem;
+                padding: 1.25rem 1rem;
+                font-size: 1.2rem;
+                font-weight: 600;
                 width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            nav a::after {
+                content: '\f105';
+                font-family: 'Font Awesome 6 Free';
+                font-weight: 900;
+                font-size: 1rem;
+                opacity: 0.5;
             }
 
             .logo {

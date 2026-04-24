@@ -21,9 +21,15 @@ use MoonShine\Laravel\Pages\LoginPage;
 use MoonShine\Laravel\Pages\ProfilePage;
 
 return [
-    'title' => env('MOONSHINE_TITLE', 'MoonShine'),
-    'logo' => '/vendor/moonshine/logo-small.svg',
-    'logo_small' => '/vendor/moonshine/logo-small.svg',
+    'title' => env('MOONSHINE_TITLE', 'Yuksalish Maktabi'),
+    'logo' => '/image/yuksalish-maktabi-al-logo.jpeg',
+    'logo_small' => '/image/yuksalish-maktabi-al-logo.jpeg',
+
+    'favicons' => [
+        'apple-touch' => '/image/yuksalish-maktabi-al-logo.jpeg',
+        '32' => '/image/yuksalish-maktabi-al-logo.jpeg',
+        '16' => '/image/yuksalish-maktabi-al-logo.jpeg',
+    ],
 
 
     // Default flags

@@ -23,17 +23,17 @@
 {{--    </section>--}}
 <section class="container mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-6">
     <div class="bg-white p-6 rounded-lg shadow-md stat-box text-center">
-        <h2 class="text-4xl font-bold text-blue-900">{{ $stat->students_count }}+</h2>
-        <p class="text-gray-600">Maktabda Tahsil Oladigan O'qituvchilar</p>
+        <h2 class="text-4xl font-bold text-blue-900">{{ $stat?->students_count ?? 0 }}+</h2>
+        <p class="text-gray-600">Maktabda Tahsil Oladigan O'quvchilar</p>
     </div>
 
     <div class="bg-white p-6 rounded-lg shadow-md stat-box text-center">
-        <h2 class="text-4xl font-bold text-blue-900">{{ $stat->qualified_teachers }}+</h2>
+        <h2 class="text-4xl font-bold text-blue-900">{{ $stat?->qualified_teachers ?? 0 }}+</h2>
         <p class="text-gray-600">Malakali O'qituvchilar</p>
     </div>
 
     <div class="bg-white p-6 rounded-lg shadow-md stat-box text-center">
-        <h2 class="text-4xl font-bold text-blue-900">{{ $stat->graduation_rate }}</h2>
+        <h2 class="text-4xl font-bold text-blue-900">{{ $stat?->graduation_rate ?? '0%' }}</h2>
         <p class="text-gray-600">Bitiruv Darajasi</p>
     </div>
 </section>

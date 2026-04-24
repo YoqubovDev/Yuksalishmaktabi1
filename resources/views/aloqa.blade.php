@@ -1,43 +1,19 @@
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aloqa - Jizzax Shahar Yuksalish Maktabi</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-
-    <style>
-        .contact-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .social-icon {
-            transition: transform 0.3s ease;
-        }
-        .social-icon:hover {
-            transform: scale(1.1);
-        }
-    </style>
-</head>
-<body class="bg-gray-50">
-    <!-- Breadcrumb -->
-    <div class="bg-white border-b py-4 shadow-sm">
-        <div class="container mx-auto px-4">
-            <div class="flex items-center text-gray-600">
-                <a href="/" class="hover:text-blue-600 transition-colors duration-300">
-                    <i class="fas fa-home mr-2"></i>Asosiy
-                </a>
-                <span class="mx-2 text-gray-400">/</span>
-                <span class="text-blue-600 font-medium">Aloqa</span>
-            </div>
-        </div>
-    </div>
-    <x-header></x-header>
+<x-header></x-header>
+<style>
+    .contact-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .social-icon {
+        transition: transform 0.3s ease;
+    }
+    .social-icon:hover {
+        transform: scale(1.1);
+    }
+</style>
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-12">

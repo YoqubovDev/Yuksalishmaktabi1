@@ -1,4 +1,24 @@
+<body class="bg-gray-50" x-data="{ 
+    showZoom: false, 
+    zoomImage: '',
+    openZoom(img) {
+        this.zoomImage = img;
+        this.showZoom = true;
+        document.body.style.overflow = 'hidden';
+    },
+    closeZoom() {
+        this.showZoom = false;
+        document.body.style.overflow = '';
+    }
+}" @keydown.escape.window="closeZoom()">
 <x-header></x-header>
+<style>
+    .badge-oltin { background-color: #FEF3C7; color: #92400E; border: 1px solid #F59E0B; }
+    .badge-kumush { background-color: #F3F4F6; color: #374151; border: 1px solid #9CA3AF; }
+    .badge-bronza { background-color: #FFEDD5; color: #9A3412; border: 1px solid #EA580C; }
+    .badge-default { background-color: #E0E7FF; color: #3730A3; border: 1px solid #6366F1; }
+    [x-cloak] { display: none !important; }
+</style>
 
     <!-- Achievements Section Header -->
     <section id="achievements" class="py-16 bg-gradient-to-b from-blue-900 to-blue-800">
@@ -13,7 +33,7 @@
     </section>
 
     <!-- Achievements Cards - Database dan ma'lumotlar -->
-    <section class="py-16 -mt-24">
+    <section class="py-12 md:py-16 -mt-12 md:-mt-24">
         <div class="container mx-auto px-4">
             @if($achievements->isEmpty())
             <div class="text-center py-12">
@@ -22,9 +42,9 @@
             @else
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($achievements as $achievement)
-                <div
-                    class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                    <div class="h-48 w-full">
+                <div @click="openZoom('{{ $achievement->image ? asset('storage/' . $achievement->image) : '' }}')"
+                    class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer group">
+                    <div class="h-56 w-full relative overflow-hidden">
                         @if($achievement->image)
                         <img src="{{ asset('storage/' . $achievement->image) }}" class="w-full h-full object-cover"
                             alt="{{ $achievement->name }}">
@@ -34,6 +54,9 @@
                             <i class="fas fa-trophy text-white text-6xl"></i>
                         </div>
                         @endif
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center">
+                            <i class="fas fa-search-plus text-white opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all text-3xl"></i>
+                        </div>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-4">
@@ -72,31 +95,31 @@
     </section>
 
     <!-- Achievements Counter -->
-<section class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <section class="py-12 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
 
 
             <div class="text-center">
-                <div class="text-5xl font-bold text-blue-600 mb-2 counter" data-target="{{ $stats->cefr }}">0</div>
+                <div class="text-5xl font-bold text-blue-600 mb-2 counter" data-target="{{ $stats?->cefr ?? 0 }}">0</div>
                 <div class="text-gray-600 font-medium">CEFR sertifikatlari</div>
             </div>
 
 
             <div class="text-center">
-                <div class="text-5xl font-bold text-blue-600 mb-2 counter" data-target="{{ $stats->universitet }}">0</div>
+                <div class="text-5xl font-bold text-blue-600 mb-2 counter" data-target="{{ $stats?->universitet ?? 0 }}">0</div>
                 <div class="text-gray-600 font-medium">Universitetlarga qabul %</div>
             </div>
 
 
             <div class="text-center">
-                <div class="text-5xl font-bold text-blue-600 mb-2 counter" data-target="{{ $stats->ielts }}">0</div>
+                <div class="text-5xl font-bold text-blue-600 mb-2 counter" data-target="{{ $stats?->ielts ?? 0 }}">0</div>
                 <div class="text-gray-600 font-medium">IELTS yuqori balllar</div>
             </div>
 
 
             <div class="text-center">
-                <div class="text-5xl font-bold text-blue-600 mb-2 counter" data-target="{{ $stats->sat }}">0</div>
+                <div class="text-5xl font-bold text-blue-600 mb-2 counter" data-target="{{ $stats?->sat ?? 0 }}">0</div>
                 <div class="text-gray-600 font-medium">SAT yuqori balllar</div>
             </div>
 
@@ -171,6 +194,25 @@
         counters.forEach(counter => observer.observe(counter));
     });
     </script>
-</body>
 
+    <!-- Zoom Modal -->
+    <div x-show="showZoom" 
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         class="fixed inset-0 z-[3000] flex items-center justify-center p-4 bg-black bg-opacity-90" 
+         x-cloak
+         @click="closeZoom()">
+        
+        <div class="relative max-w-5xl w-full h-full flex items-center justify-center">
+            <button @click="closeZoom()" class="absolute top-4 right-4 text-white hover:text-gray-300 z-10 p-2 bg-white bg-opacity-10 rounded-full transition-colors">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <img :src="zoomImage" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl" @click.stop alt="Zoomed view">
+        </div>
+    </div>
+</body>
 </html>

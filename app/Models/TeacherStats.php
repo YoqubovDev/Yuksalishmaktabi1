@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class TeacherStats extends Model
 {
     protected $fillable = [
-        'asosiy', 'ilmiy', 'bosh', 'kurator'
+        'asosiy', 'ilmiy', 'kurator', 'tashqi'
     ];
 }

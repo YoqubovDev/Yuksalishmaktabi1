@@ -6,12 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Teacher extends Model
 {
-    protected $fillable
-        =
-        [
-            'asosiy',
-            'ilmiy',
-            'bosh',
-            'kurator'
-        ];
+    protected $fillable = [
+        'name',
+        'subject',
+        'image',
+        'bio',
+        'experience',
+        'languages',
+        'education',
+        'specialization',
+        'phone'
+    ];
 }

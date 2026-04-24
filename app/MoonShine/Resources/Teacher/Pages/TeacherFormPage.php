@@ -38,6 +38,11 @@ class TeacherFormPage extends FormPage
                 Textarea::make('Bio' , 'bio')->required(),
                 Image::make('Rasm', 'image')->removable()
                     ->allowedExtensions(['jpg', 'jpeg', 'png', 'webp']),
+                Text::make('Tajriba', 'experience')->nullable(),
+                Text::make('Tillar', 'languages')->nullable(),
+                Text::make('Ma\'lumoti', 'education')->nullable(),
+                Text::make('Mutaxassislik', 'specialization')->nullable(),
+                Text::make('Telefon', 'phone')->nullable(),
             ]),
         ];
     }
