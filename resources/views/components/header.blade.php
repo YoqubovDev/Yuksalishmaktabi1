@@ -8,7 +8,8 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    @stack('head')
 
     <script>
         tailwind.config = {
@@ -779,6 +780,7 @@
 </head>
 <body class="font-sans bg-gray-100">
     <!-- Navigation -->
+    @if($showMenu ?? true)
     <header>
         <div class="container">
             <div class="header-content">
@@ -804,6 +806,9 @@
             </div>
         </div>
     </header>
+    @endif
+
+    {{ $slot }}
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -856,3 +861,5 @@
             });
         });
     </script>
+</body>
+</html>

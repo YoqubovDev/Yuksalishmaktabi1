@@ -30,39 +30,30 @@
         <div class="container mx-auto px-4">
             <h3 class="text-3xl font-bold text-blue-900 mb-10 text-center">O‘qituvchilar jamoasi</h3>
 
-            <div class="swiper teacherSwiper">
-                <div class="swiper-wrapper">
-                    @foreach($teachers as $teacher)
-                        <div class="swiper-slide">
-                            <div @click="openProfile({ 
-                                    name: '{{$teacher->name}}', 
-                                    subject: '{{$teacher->subject}}', 
-                                    image: '{{ asset('storage/' . $teacher->image) }}',
-                                    bio: '{{ addslashes($teacher->bio) }}',
-                                    experience: '{{ $teacher->experience }}',
-                                    languages: '{{ $teacher->languages }}',
-                                    education: '{{ $teacher->education }}',
-                                    specialization: '{{ $teacher->specialization }}',
-                                    phone: '{{ $teacher->phone }}'
-                                })"
-                                 class="bg-white shadow-md rounded-2xl p-6 text-center max-w-sm mx-auto hover:shadow-xl transition-all cursor-pointer">
-                                <div class="w-32 h-32 mx-auto mb-4">
-                                    <img src="{{ asset('storage/' . $teacher->image) }}"
-                                         class="w-full h-full object-cover rounded-full border-4 border-blue-200"
-                                         alt="Teacher">
-                                </div>
-                                <h4 class="text-xl font-semibold text-blue-900">{{$teacher->name}}</h4>
-                                <p class="text-blue-600 font-medium">{{$teacher->subject}}</p>
-                                <p class="text-gray-600 text-sm mt-2 line-clamp-2">{{$teacher->bio}}</p>
-                            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                @foreach($teachers as $teacher)
+                    <div @click="openProfile({ 
+                            name: '{{$teacher->name}}', 
+                            subject: '{{$teacher->subject}}', 
+                            image: '{{ asset('storage/' . $teacher->image) }}',
+                            bio: '{{ addslashes($teacher->bio) }}',
+                            experience: '{{ $teacher->experience }}',
+                            languages: '{{ $teacher->languages }}',
+                            education: '{{ $teacher->education }}',
+                            specialization: '{{ $teacher->specialization }}',
+                            phone: '{{ $teacher->phone }}'
+                        })"
+                         class="bg-white shadow-md rounded-2xl p-6 text-center w-full max-w-sm mx-auto hover:shadow-xl transition-all cursor-pointer h-full flex flex-col items-center">
+                        <div class="w-32 h-32 mx-auto mb-4 flex-shrink-0">
+                            <img src="{{ asset('storage/' . $teacher->image) }}"
+                                 class="w-full h-full object-cover rounded-full border-4 border-blue-200"
+                                 alt="Teacher">
                         </div>
-                    @endforeach
-                </div>
-
-                <!-- Navigation buttons -->
-                <div class=".swiper-button-next"></div>
-                <div class=".swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                        <h4 class="text-xl font-semibold text-blue-900">{{$teacher->name}}</h4>
+                        <p class="text-blue-600 font-medium">{{$teacher->subject}}</p>
+                        <p class="text-gray-600 text-sm mt-2 line-clamp-2">{{$teacher->bio}}</p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -118,33 +109,6 @@
             </div>
         </div>
     </section>
-    <!-- Swiper JS -->
-    <script>
-        const swiper = new Swiper(".teacherSwiper", {
-            loop: true, // Bu juda muhim
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            slidesPerView: 1,
-            spaceBetween: 30,
-            breakpoints: {
-                640: {
-                    slidesPerView: 1,
-                },
-                768: {
-                    slidesPerView: 2,
-                },
-                1024: {
-                    slidesPerView: 3,
-                },
-            },
-        });
-    </script>
 
   <!-- Profile Detail Modal -->
   <div x-show="profileModal.show" 
