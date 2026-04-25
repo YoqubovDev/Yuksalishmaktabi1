@@ -10057,7 +10057,7 @@
                             data-field-widthmode-res-375-value="fixed"
                             data-fields="top,left,width,height,container,axisx,axisy,caption,leftunits,topunits"
                             style="top: 9px; left: 453px; width: 301px; height: 74px; transform: unset; transition-duration: 0.7s;"
-                            data-observer-ready="true"> <a class="tn-atom" href="https://yuksalishmaktabi.uz/vacancy">
+                            data-observer-ready="true"> <a class="tn-atom" href="https://yuksalishmaktabi.uz/vacancy">Bo'sh ish o'rinlari</a>
                     </div>
                 </div>
                 <script>t_onReady(function () { t_onFuncLoad('t396_init', function () { t396_init('1065639336'); }); });</script>
@@ -12533,30 +12533,44 @@
         <!-- Team Section -->
         <section class="py-16 bg-gray-50">
             <div class="container mx-auto px-4">
-                <h3 class="text-3xl font-bold text-blue-900 mb-10 text-center">Yuksalish maktab rahbariyati</h3>
-                <div class="flex flex-nowrap overflow-x-auto pb-8 gap-8 snap-x no-scrollbar">
+                <h3 class="text-4xl font-extrabold text-blue-900 mb-12 text-center">Yuksalish maktab rahbariyati</h3>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10">
                     @foreach($homes as $home)
-                        <div class="flex-none w-[300px] snap-center">
-                            <div @click="openProfile({ 
-                                      name: '{{$home->name}}', 
-                                      subject: '{{$home->subject}}', 
-                                      image: '{{ asset('storage/' . $home->image) }}',
-                                      bio: '{{ addslashes($home->bio) }}',
-                                      experience: '{{ $home->experience }}',
-                                      languages: '{{ $home->languages }}',
-                                      education: '{{ $home->education }}',
-                                      specialization: '{{ $home->specialization }}',
-                                      phone: '{{ $home->phone }}'
-                                  })" 
-                                 class="bg-white shadow-xl rounded-3xl p-6 text-center hover:scale-105 transition-transform duration-300 cursor-pointer h-full flex flex-col items-center border border-gray-100">
-                                <div class="w-32 h-32 mx-auto mb-4 flex-shrink-0">
-                                    <img src="{{ asset('storage/' . $home->image) }}"
-                                         class="w-full h-full object-cover rounded-full border-4 border-blue-100 shadow-md"
-                                         alt="Teacher">
+                        <div x-data="{ expanded: false }" class="bg-white shadow-2xl rounded-3xl p-6 hover:shadow-3xl transition-shadow duration-300">
+                            <div class="w-full aspect-[4/5] overflow-hidden rounded-2xl border-2 border-blue-200 cursor-pointer"
+                                 @click="expanded = !expanded">
+                                <img src="{{ asset('storage/' . $home->image) }}"
+                                     alt="{{$home->name}}"
+                                     class="w-full h-full object-cover hover:scale-110 transition-transform duration-500 rounded-2xl">
+                            </div>
+                            <div class="mt-4 text-center cursor-pointer" @click="expanded = !expanded">
+                                <h4 class="text-xl font-bold text-blue-900 mb-1">{{$home->name}}</h4>
+                                <p class="text-blue-600 font-semibold text-sm">{{$home->subject}}</p>
+                            </div>
+                            
+                            <!-- Dropdown Biography -->
+                            <div x-show="expanded" 
+                                 x-transition:enter="transition ease-out duration-300"
+                                 x-transition:enter-start="opacity-0 transform -translate-y-2"
+                                 x-transition:enter-end="opacity-100 transform translate-y-0"
+                                 x-transition:leave="transition ease-in duration-200"
+                                 x-transition:leave-start="opacity-100 transform translate-y-0"
+                                 x-transition:leave-end="opacity-0 transform -translate-y-2"
+                                 class="mt-4 pt-4 border-t border-gray-100 text-sm text-gray-600"
+                                 x-cloak>
+                                <div class="text-left space-y-2">
+                                    <p><strong>Tajriba:</strong> {{$home->experience ?? 'Mavjud emas'}}</p>
+                                    <p><strong>Tillar:</strong> {{$home->languages ?? 'O\'zbek tili'}}</p>
+                                    <p class="mt-3 italic leading-relaxed text-gray-500">{{$home->bio}}</p>
                                 </div>
-                                <h4 class="text-xl font-bold text-blue-900 mb-1 leading-tight">{{$home->name}}</h4>
-                                <p class="text-blue-600 font-semibold text-sm mb-2">{{$home->subject}}</p>
-                                <p class="text-gray-500 text-xs mt-2 line-clamp-3 leading-relaxed">{{$home->bio}}</p>
+                                @if($home->phone)
+                                    <div class="mt-5 flex justify-center">
+                                        <a href="tel:{{$home->phone}}" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-bold transition-all shadow-md w-full sm:w-auto justify-center">
+                                            <i class="fas fa-phone-alt"></i> Bog'lanish
+                                        </a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     @endforeach
@@ -12582,76 +12596,6 @@
                 </div>
             </div>
         </section> -->
-
-        <!-- Profile Detail Modal -->
-        <div x-show="profileModal.show" 
-             x-transition:enter="transition ease-out duration-300"
-             x-transition:enter-start="opacity-0 scale-95"
-             x-transition:enter-end="opacity-100 scale-100"
-             x-transition:leave="transition ease-in duration-200"
-             x-transition:leave-start="opacity-100 scale-100"
-             x-transition:leave-end="opacity-0 scale-95"
-             class="fixed inset-0 z-[2000] flex items-center justify-center p-4 bg-black bg-opacity-60 backdrop-blur-sm" 
-             x-cloak>
-            
-            <div @click.away="closeProfile()" class="bg-white rounded-[40px] shadow-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto flex flex-col md:flex-row relative">
-                <button @click="closeProfile()" class="absolute top-6 right-8 text-gray-400 hover:text-gray-600 z-[101] p-2 bg-gray-100 rounded-full transition-colors">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-
-                <div class="w-full md:w-2/5 p-12 flex flex-col items-center justify-center bg-blue-50 border-r border-blue-100">
-                    <div class="w-64 h-72 rounded-[40px] overflow-hidden shadow-lg mb-8">
-                        <img :src="profileModal.person.image" class="w-full h-full object-cover" alt="">
-                    </div>
-                    <h3 x-text="profileModal.person.name" class="text-3xl font-bold text-blue-900 mb-2 text-center"></h3>
-                    <div class="bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold uppercase tracking-wider" x-text="profileModal.person.subject"></div>
-                </div>
-
-                <div class="w-full md:w-3/5 p-12">
-                    <div class="mb-10">
-                        <div class="flex items-center gap-2 mb-6">
-                            <div class="w-10 h-1 bg-yellow-400 rounded-full"></div>
-                            <h4 class="text-lg font-bold text-blue-900 uppercase tracking-widest">MA'LUMOTLAR</h4>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div class="bg-white border border-gray-100 p-6 rounded-3xl flex items-center gap-4 shadow-sm">
-                                <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 text-xl">
-                                    <i class="fas fa-briefcase"></i>
-                                </div>
-                                <div>
-                                    <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider mb-1">TAJRIBA</p>
-                                    <p class="text-blue-900 font-bold" x-text="profileModal.person.experience || 'Tajriba mavjud emas'"></p>
-                                </div>
-                            </div>
-                            <div class="bg-white border border-gray-100 p-6 rounded-3xl flex items-center gap-4 shadow-sm">
-                                <div class="w-12 h-12 bg-yellow-50 rounded-2xl flex items-center justify-center text-yellow-600 text-xl">
-                                    <i class="fas fa-language"></i>
-                                </div>
-                                <div>
-                                    <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider mb-1">TILLAR</p>
-                                    <p class="text-blue-900 font-bold" x-text="profileModal.person.languages || 'O\'zbek tili'"></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mb-10">
-                        <div class="flex items-center gap-2 mb-6">
-                            <div class="w-10 h-1 bg-blue-600 rounded-full"></div>
-                            <h4 class="text-lg font-bold text-blue-900 uppercase tracking-widest">BIOGRAFIYA</h4>
-                        </div>
-                        <p class="text-gray-600 leading-relaxed italic" x-text="profileModal.person.bio"></p>
-                    </div>
-
-                    <div x-show="profileModal.person.phone">
-                      <a :href="'tel:' + profileModal.person.phone" class="inline-flex items-center justify-center w-full md:w-auto gap-3 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-3xl font-bold transition-all shadow-lg">
-                          <i class="fas fa-phone-alt"></i>
-                          Bog'lanish
-                      </a>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Gallery Modal -->
         <div x-show="galleryModal.show"
