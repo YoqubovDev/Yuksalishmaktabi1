@@ -15,21 +15,7 @@
                 </div>
             </div>
 
-            <!-- Quick Contact -->
-            <div class="flex flex-wrap justify-center gap-6">
-                <div class="flex items-center bg-white bg-opacity-5 rounded-lg px-4 py-3 border border-white border-opacity-5 shadow-sm">
-                    <div class="bg-[#f69a51] p-2 rounded-full mr-3 shadow-md shadow-[#f69a51]/20">
-                        <i class="fas fa-phone-alt text-white"></i>
-                    </div>
-                    
-                </div>
-
-                <div class="flex items-center bg-white bg-opacity-5 rounded-lg px-4 py-3 border border-white border-opacity-5 shadow-sm">
-                    <div class="bg-[#f69a51] p-2 rounded-full mr-3 shadow-md shadow-[#f69a51]/20">
-                        <i class="fas fa-envelope text-white"></i>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 
