@@ -115,12 +115,7 @@
         <div class="flex flex-col md:flex-row justify-between items-center">
             <p class="text-gray-400 mb-4 md:mb-0">
                 © 2025 Jizzax shahridagi Yuksalish maktabimiz. Barcha huquqlar himoyalangan.
-            </p>
-            <div class="flex space-x-6">
-                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm">Maxfiylik siyosati</a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm">Foydalanish shartlari</a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm">Cookie siyosati</a>
-            </div>
+            </p>                                                                                                                                                                    
         </div>
     </div>
 </footer>

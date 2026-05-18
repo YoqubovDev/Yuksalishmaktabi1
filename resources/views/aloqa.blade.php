@@ -245,7 +245,118 @@
                 </div>
             </div>
         @endif
+
+        <!-- Qabulga yoziling (Enrollment Form) Section -->
+        <section class="mt-16 relative rounded-3xl overflow-hidden shadow-2xl min-h-[420px] flex items-center justify-center py-16 px-6 sm:px-12 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop');">
+            <!-- Dark glassmorphism overlay -->
+            <div class="absolute inset-0 bg-slate-900 bg-opacity-70 backdrop-blur-[2px]"></div>
+            
+            <div class="relative z-10 w-full max-w-6xl mx-auto text-center">
+                <!-- Header -->
+                <h2 class="text-white text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+                    Qabulga yoziling
+                </h2>
+                <p class="text-gray-200 text-base sm:text-lg max-w-3xl mx-auto mb-10 leading-relaxed font-semibold">
+                    O'quv markazimizda yangi o'quv yili uchun qabul boshlandi! Joylar cheklangan, tezroq yoziling.
+                </p>
+                
+                <!-- Form -->
+                <form onsubmit="event.preventDefault(); showToast(); this.reset();" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-center bg-white bg-opacity-10 p-6 rounded-2xl backdrop-blur-md border border-white border-opacity-10 shadow-inner">
+                    <!-- Ism -->
+                    <div class="bg-white rounded-xl px-4 py-2.5 shadow-sm border border-transparent focus-within:ring-2 focus-within:ring-amber-500 transition-all duration-300">
+                        <input type="text" id="ism" placeholder="Ism" required
+                            class="w-full bg-transparent text-gray-800 placeholder-gray-400 font-semibold focus:outline-none p-0 border-none py-1">
+                    </div>
+                    
+                    <!-- Familiya -->
+                    <div class="bg-white rounded-xl px-4 py-2.5 shadow-sm border border-transparent focus-within:ring-2 focus-within:ring-amber-500 transition-all duration-300">
+                        <input type="text" id="familiya" placeholder="Familiya" required
+                            class="w-full bg-transparent text-gray-800 placeholder-gray-400 font-semibold focus:outline-none p-0 border-none py-1">
+                    </div>
+                    
+                    <!-- Sinf -->
+                    <div class="bg-white rounded-xl px-4 py-2.5 shadow-sm border border-transparent focus-within:ring-2 focus-within:ring-amber-500 relative transition-all duration-300">
+                        <select id="sinf" required
+                            class="w-full bg-transparent text-gray-800 font-semibold focus:outline-none p-0 border-none py-1 appearance-none cursor-pointer pr-8">
+                            <option value="" disabled selected class="text-gray-400">Sinf</option>
+                            <option value="1">1-sinf</option>
+                            <option value="2">2-sinf</option>
+                            <option value="3">3-sinf</option>
+                            <option value="4">4-sinf</option>
+                            <option value="5">5-sinf</option>
+                            <option value="6">6-sinf</option>
+                            <option value="7">7-sinf</option>
+                            <option value="8">8-sinf</option>
+                            <option value="9">9-sinf</option>
+                            <option value="10">10-sinf</option>
+                            <option value="11">11-sinf</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
+                            <i class="fas fa-chevron-down text-sm"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Telefon raqam -->
+                    <div class="bg-white text-left rounded-xl px-4 py-1.5 shadow-sm border border-transparent focus-within:ring-2 focus-within:ring-amber-500 transition-all duration-300">
+                        <span class="block text-[10px] font-bold text-gray-400 uppercase tracking-wider leading-none">Telefon raqam</span>
+                        <div class="flex items-center mt-1">
+                            <span class="text-gray-800 font-bold mr-1 leading-none">+998</span>
+                            <input type="tel" id="phone" placeholder="" required pattern="[0-9]{9}" maxlength="9"
+                                class="w-full bg-transparent text-gray-800 font-bold focus:outline-none p-0 border-none leading-none">
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="w-full">
+                        <button type="submit"
+                            class="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            Ariza qoldirish
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
     </main>
+
+    <!-- Success Toast Notification -->
+    <div id="success-toast" class="fixed top-6 left-1/2 transform -translate-x-1/2 z-[9999] flex items-center gap-4 bg-white text-gray-800 px-6 py-4 rounded-2xl shadow-2xl border border-emerald-100 max-w-md w-[calc(100%-2rem)] transition-all duration-500 ease-out translate-y-[-150%] opacity-0 pointer-events-none">
+        <div class="w-10 h-10 bg-emerald-500 text-white rounded-full flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-200">
+            <i class="fas fa-check text-lg"></i>
+        </div>
+        <div class="flex-grow">
+            <h4 class="font-bold text-gray-800 text-sm">Muvaffaqiyatli!</h4>
+            <p class="text-xs text-gray-500 mt-0.5">Arizangiz muvaffaqiyatli qoldirildi</p>
+        </div>
+        <button onclick="closeToast()" class="text-gray-400 hover:text-gray-600 transition-colors p-1.5 rounded-lg hover:bg-gray-50">
+            <i class="fas fa-times text-sm"></i>
+        </button>
+    </div>
+
+    <!-- Script to Trigger Toast -->
+    <script>
+        function showToast() {
+            const toast = document.getElementById('success-toast');
+            if (!toast) return;
+            
+            // Remove hidden states and add active states
+            toast.classList.remove('translate-y-[-150%]', 'opacity-0', 'pointer-events-none');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            
+            // Auto close after 4 seconds
+            setTimeout(() => {
+                closeToast();
+            }, 4000);
+        }
+
+        function closeToast() {
+            const toast = document.getElementById('success-toast');
+            if (!toast) return;
+            
+            // Remove active states and add hidden states
+            toast.classList.remove('translate-y-0', 'opacity-100');
+            toast.classList.add('translate-y-[-150%]', 'opacity-0', 'pointer-events-none');
+        }
+    </script>
 
     <!-- Footer (agar kerak bo'lsa qo'shing) -->
 </body>

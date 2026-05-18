@@ -1,8 +1,124 @@
-<x-header></x-header> 
-<x-header :show-menu="false">
-    @push('head')
-        @include('partials.tilda_home_assets')
-    @endpush
+@push('head')
+    @include('partials.tilda_home_assets')
+@endpush
+<x-header></x-header>
+
+<div x-data="{ 
+    profileModal: { show: false, person: {} },
+    openProfile(data) {
+        this.profileModal.person = data;
+        this.profileModal.show = true;
+        document.body.style.overflow = 'hidden';
+    },
+    closeProfile() {
+        this.profileModal.show = false;
+        document.body.style.overflow = '';
+    }
+}" @keydown.escape.window="closeProfile()">
+
+  <!-- Hero Slider Section -->
+  <section class="main-slider" x-data="{ currentSlide: 0, totalSlides: 3 }" x-init="setInterval(() => { currentSlide = (currentSlide + 1) % totalSlides }, 5000)">
+    <div class="main-slides" :style="'transform: translateX(-' + (currentSlide * 100) + '%)'">
+      <!-- Slide 1 -->
+      <div class="main-slide">
+        <img src="/image/orig.jpeg" alt="Campus Building" class="w-full h-full object-cover">
+        <div class="absolute inset-0 gradient-overlay flex flex-col items-center md:items-end justify-start text-white p-10 md:p-20 md:pt-40">
+          <div class="max-w-5xl md:text-right">
+            <p class="text-white mb-6 flex items-center justify-center md:justify-end font-light tracking-widest uppercase text-xs md:text-sm animate-fade-in-down">
+              <span class="mr-2"><i class="fas fa-graduation-cap"></i></span>
+              bilim innovatsiyaga yo‘li
+            </p>
+            <!-- <h3 class="text-2xl md:text-4xl lg:text-5xl font-serif mb-6 hero-text-shadow leading-snug">Jizzax shahar Yuksalish maktabi bilan</h3> -->
+            <p  class="text-3xl md:text-5xl lg:text-6xl font-serif mb-10 hero-text-shadow font-bold leading-snug">
+              Zehinlilarni tarbiyalaymiz, yetakchilarni voyaga yetkazamiz.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="main-slide">
+        <img src="/image/photo_1_2025-03-24_00-16-14.jpg" alt="Student Life" class="w-full h-full object-cover">
+        <div class="absolute inset-0 gradient-overlay flex flex-col items-center md:items-end justify-start text-white p-10 md:p-20 md:pt-40">
+          <div class="max-w-4xl md:text-right">
+            <!-- <p class="text-white mb-6 flex items-center justify-center md:justify-end font-light tracking-widest uppercase text-xs md:text-sm">
+              <span class="mr-2"><i class="fas fa-users"></i></span>
+              Birlik va mukammallik
+            </p>
+            <h3 class="text-2xl md:text-4xl lg:text-5xl font-serif mb-6 hero-text-shadow leading-snug">Biz bilan</h3>
+            <h2 class="text-3xl md:text-5xl lg:text-6xl font-serif mb-10 hero-text-shadow font-bold leading-snug">O‘z ishtiyoqingni angla</h2>
+            <p class="text-lg md:text-xl font-light opacity-90 max-w-2xl ml-auto leading-relaxed">Huradan tortib fanlargacha – bizning qo‘llab-quvvatlovchi muhitimizda o‘z yo‘lingizni toping.</p> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="main-slide">
+        <img src="/image/photo_6_2025-03-24_00-16-14.jpg" alt="Research Lab" class="w-full h-full object-cover">
+        <div class="absolute inset-0 gradient-overlay flex flex-col items-center md:items-end justify-start text-white p-10 md:p-20 md:pt-40">
+          <div class="max-w-4xl md:text-right">
+            <!-- <p class="text-white mb-6 flex items-center justify-center md:justify-end font-light tracking-widest uppercase text-xs md:text-sm">
+              <span class="mr-2"><i class="fas fa-microscope"></i></span>
+              Tadqiqot va innovatsiya
+            </p> -->
+            <!-- <h2 class="text-3xl md:text-5xl lg:text-6xl font-serif mb-6 hero-text-shadow font-bold leading-snug">Ertangi kuningni</h2>
+            <h3 class="text-2xl md:text-4xl lg:text-5xl font-serif mb-10 hero-text-shadow leading-snug">Bugun qur</h3>
+            <p class="text-lg md:text-xl font-light opacity-90 max-w-2xl ml-auto leading-relaxed">Zamonaviy jihozlangan infratuzilmamiz ilg‘or tadqiqotlar va innovatsiyalarni qo‘llab-quvvatlaydi.</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="absolute bottom-12 left-0 right-0 flex justify-center space-x-6 z-20">
+      <div class="flex space-x-2 slide-dots">
+        <span @click="currentSlide = 0" class="h-2 bg-white rounded-full cursor-pointer transition-all duration-300" :class="currentSlide === 0 ? 'w-8 bg-opacity-80' : 'w-2 bg-opacity-50'"></span>
+        <span @click="currentSlide = 1" class="h-2 bg-white rounded-full cursor-pointer transition-all duration-300" :class="currentSlide === 1 ? 'w-8 bg-opacity-80' : 'w-2 bg-opacity-50'"></span>
+        <span @click="currentSlide = 2" class="h-2 bg-white rounded-full cursor-pointer transition-all duration-300" :class="currentSlide === 2 ? 'w-8 bg-opacity-80' : 'w-2 bg-opacity-50'"></span>
+      </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button @click="currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1" class="slider-prev absolute left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white bg-opacity-10 backdrop-blur-sm rounded-full border border-white text-white flex items-center justify-center focus:outline-none hover:bg-white hover:bg-opacity-20 transition-all duration-300 z-20">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button @click="currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0" class="slider-next absolute right-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white bg-opacity-10 backdrop-blur-sm rounded-full border border-white text-white flex items-center justify-center focus:outline-none hover:bg-white hover:bg-opacity-20 transition-all duration-300 z-20">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </section>
+
+  <!-- Maktab jihozlari Section -->
+  <section class="py-20 bg-gray-50" x-data="{ showModal: false, imageUrl: '' }">
+      <div class="container mx-auto px-4">
+          <h3 class="text-4xl font-extrabold text-blue-900 mb-12 text-center">Maktab jihozlari</h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10">
+              @foreach($qabulrasmis as $rasm)
+                  <div class="bg-white shadow-2xl rounded-3xl p-6 hover:shadow-3xl transition-shadow duration-300">
+                      <div class="w-full aspect-[4/5] overflow-hidden rounded-2xl border-2 border-blue-200 cursor-pointer"
+                           @click="showModal = true; imageUrl = '{{ asset('storage/' . $rasm->image) }}'">
+                          <img src="{{ asset('storage/' . $rasm->image) }}"
+                               alt="Qabul rasmi"
+                               class="w-full h-full object-cover hover:scale-110 transition-transform duration-500 rounded-2xl">
+                      </div>
+                  </div>
+              @endforeach
+          </div>
+      </div>
+
+      <!-- Modal -->
+      <div x-show="showModal"
+           class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+           x-transition>
+          <div class="relative">
+              <button @click="showModal = false"
+                      class="absolute top-2 right-2 text-white text-3xl font-bold">&times;</button>
+              <img :src="imageUrl" class="max-w-screen-md max-h-screen rounded-xl border-4 border-white">
+          </div>
+      </div>
+  </section>
+</div>
+
         <div id="allrecords" class="t-records t-records_animated t-records_visible"
             data-hook="blocks-collection-content-node" data-tilda-project-id="12608063" data-tilda-page-id="65503203"
             data-tilda-formskey="3c4bb906834e72ac484cd41212608063" data-tilda-cookie="no" data-tilda-lazy="yes"
@@ -2716,7 +2832,7 @@
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img loaded"
                                     data-original="https://static.tildacdn.one/tild3461-3231-4465-a264-666337376362/04.svg"
-                                    src="https://static.tildacdn.one/tild3461-3231-4465-a264-666337376362/04.svg" alt=""
+                                    src="public/image/yuksalish-maktabi-al-logo.jpeg" alt=""
                                     imgfield="tn_img_1742848025552"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9081948791742848052667 t-animate t-animate_wait"
@@ -2735,7 +2851,7 @@
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img loaded"
                                     data-original="https://static.tildacdn.one/tild3630-6461-4666-b535-353439343632/03.svg"
-                                    src="https://static.tildacdn.one/tild3630-6461-4666-b535-353439343632/03.svg" alt=""
+                                    src="public/image/yuksalish-maktabi-al-logo.jpeg" alt=""
                                     imgfield="tn_img_1742848052667"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9081948791742848041680 t-animate t-animate_wait"
@@ -2754,7 +2870,7 @@
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img loaded"
                                     data-original="https://static.tildacdn.one/tild3037-6437-4139-b934-633862343037/02.svg"
-                                    src="https://static.tildacdn.one/tild3037-6437-4139-b934-633862343037/02.svg" alt=""
+                                    src="public/image/yuksalish-maktabi-al-logo.jpeg" alt=""
                                     imgfield="tn_img_1742848041680"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9081948791742848033167 t-animate t-animate_wait"
@@ -2772,7 +2888,7 @@
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img loaded"
                                     data-original="https://static.tildacdn.one/tild3431-3338-4564-b832-363664613362/01.svg"
-                                    src="https://static.tildacdn.one/tild3431-3338-4564-b832-363664613362/01.svg" alt=""
+                                    src="public/image/yuksalish-maktabi-al-logo.jpeg" alt=""
                                     imgfield="tn_img_1742848033167"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9081948791742673115144 t-animate t-animate_started"
@@ -2789,8 +2905,8 @@
                             style="left: 614px; top: 23px; width: 570px; transform: translate3d(100px, 0px, 0px); transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img loaded"
-                                    data-original="https://static.tildacdn.one/tild3538-3636-4436-a430-623935323963/2.svg"
-                                    src="https://static.tildacdn.one/tild3538-3636-4436-a430-623935323963/2.svg" alt=""
+                                    data-original="/image/card2.svg"
+                                    src="/image/card2.svg" alt=""
                                     imgfield="tn_img_1742673115144"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9081948791742673832594 t-animate t-animate_started"
@@ -2807,8 +2923,8 @@
                             style="left: 613px; top: 314px; width: 570px; transform: translate3d(100px, 0px, 0px); transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img loaded"
-                                    data-original="https://static.tildacdn.one/tild3232-6332-4962-a237-656137653830/4.svg"
-                                    src="https://static.tildacdn.one/tild3232-6332-4962-a237-656137653830/4.svg" alt=""
+                                    data-original="/image/card4.svg"
+                                    src="/image/card4.svg" alt=""
                                     imgfield="tn_img_1742673832594"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9081948791742674159354 t-animate t-animate_started"
@@ -2825,8 +2941,8 @@
                             style="left: 23px; top: 314px; width: 570px; transform: translate3d(-100px, 0px, 0px); transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img loaded"
-                                    data-original="https://static.tildacdn.one/tild6565-3931-4565-b539-626137333162/3.svg"
-                                    src="https://static.tildacdn.one/tild6565-3931-4565-b539-626137333162/3.svg" alt=""
+                                    data-original="/image/card3.svg"
+                                    src="/image/card3.svg" alt=""
                                     imgfield="tn_img_1742674159354"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9081948791742674145198 t-animate t-animate_started"
@@ -2844,8 +2960,8 @@
                             style="left: 23px; top: 23px; width: 570px; transform: translate3d(-100px, 0px, 0px); transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img loaded"
-                                    data-original="https://static.tildacdn.one/tild3664-6330-4636-b936-656432393631/Frame_2087326461.svg"
-                                    src="https://static.tildacdn.one/tild3664-6330-4636-b936-656432393631/Frame_2087326461.svg"
+                                    data-original="/image/card1.svg"
+                                    src="/image/card1.svg"
                                     alt="" imgfield="tn_img_1742674145198"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9081948791742674176101 t-animate t-animate_started"
@@ -3338,67 +3454,6 @@
                         }
                     }
                 </style>
-                <div class="t396">
-                    <div class="t396__artboard rendered" data-artboard-recid="910923610"
-                        data-artboard-screens="375,480,640,960,1200" data-artboard-height="200"
-                        data-artboard-valign="center" data-artboard-upscale="grid" data-artboard-height-res-375="490"
-                        data-artboard-proxy-min-offset-top="0" data-artboard-proxy-min-height="200"
-                        data-artboard-proxy-max-height="200">
-                        <div class="t396__carrier" data-artboard-recid="910923610"></div>
-                        <div class="t396__filter" data-artboard-recid="910923610"></div>
-                        <div class="t396__elem tn-elem tn-elem__9109236101742849555411 t-animate t-animate_wait"
-                            data-elem-id="1742849555411" data-elem-type="text" data-field-top-value="59"
-                            data-field-left-value="242" data-field-height-value="56" data-field-width-value="716"
-                            data-field-axisy-value="top" data-field-axisx-value="left" data-field-container-value="grid"
-                            data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value="px"
-                            data-field-widthunits-value="px" data-animate-style="fadeinup" data-animate-duration="0.7"
-                            data-animate-distance="100" data-animate-mobile="y" data-field-textfit-value="autowidth"
-                            data-field-fontsize-value="56" data-field-top-res-375-value="9"
-                            data-field-left-res-375-value="16" data-field-height-res-375-value="72"
-                            data-field-width-res-375-value="320" data-field-textfit-res-375-value="fixedsize"
-                            data-field-fontsize-res-375-value="36"
-                            data-fields="top,left,width,height,container,axisx,axisy,widthunits,leftunits,topunits"
-                            style="top: 59px; left: 245px; width: auto; height: auto; transform: unset; transition-duration: 0.7s;"
-                            data-observer-ready="true">
-                            <div class="tn-atom" field="tn_text_1742849555411" style="line-height: 56px;">Yuksalish maktabi
-                                imkoniyatlari</div>
-                        </div>
-                        <div class="t396__elem tn-elem tn-elem__9109236101742849555416 t-animate t-animate_wait"
-                            data-elem-id="1742849555416" data-elem-type="text" data-field-top-value="132"
-                            data-field-left-value="353" data-field-height-value="52" data-field-width-value="495"
-                            data-field-axisy-value="top" data-field-axisx-value="left" data-field-container-value="grid"
-                            data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value="px"
-                            data-field-widthunits-value="px" data-animate-style="fadeinup" data-animate-duration="0.7"
-                            data-animate-distance="100" data-animate-mobile="y" data-field-textfit-value="autoheight"
-                            data-field-fontsize-value="18" data-field-top-res-375-value="90"
-                            data-field-left-res-375-value="16" data-field-width-res-375-value="325"
-                            data-field-fontsize-res-375-value="16"
-                            data-fields="top,left,width,height,container,axisx,axisy,widthunits,leftunits,topunits"
-                            style="top: 132px; left: 356px; width: 495px; height: auto; transform: unset; transition-duration: 0.7s;"
-                            data-observer-ready="true">
-                            <div class="tn-atom" field="tn_text_1742849555416" style="line-height: 26px;">Farzandingiz
-                                o‘qishdagi qiyinchiliklarini oson va samarali hal qilishga yordam beramiz!</div>
-                        </div>
-                        <div class="t396__elem tn-elem tn-elem__9109236101742849622423 t-animate t-animate_wait"
-                            data-elem-id="1742849622423" data-elem-type="image" data-field-top-value="-729"
-                            data-field-left-value="180" data-field-height-value="357" data-field-width-value="386"
-                            data-field-axisy-value="top" data-field-axisx-value="left" data-field-container-value="grid"
-                            data-field-topunits-value="px" data-field-leftunits-value="px" data-field-heightunits-value="px"
-                            data-field-widthunits-value="px" data-animate-style="fadeinright" data-animate-duration="0.7"
-                            data-animate-distance="100" data-animate-mobile="y" data-field-filewidth-value="671"
-                            data-field-fileheight-value="621" data-field-heightmode-value="hug"
-                            data-field-top-res-375-value="154" data-field-left-res-375-value="16"
-                            data-field-height-res-375-value="321" data-field-width-res-375-value="347"
-                            data-fields="img,width,filewidth,fileheight,top,left,container,axisx,axisy,widthunits,leftunits,topunits"
-                            style="left: 183px; top: -729px; width: 386px; transform: unset; transition-duration: 0.7s;"
-                            data-observer-ready="true">
-                            <div class="tn-atom"> <img class="tn-atom__img t-img loaded"
-                                    data-original="student_yuksalish.png"
-                                    src="student_yuksalish.png"
-                                    alt="" imgfield="tn_img_1742849622423"> </div>
-                        </div>
-                    </div>
-                </div>
                 <script>t_onReady(function () { t_onFuncLoad('t396_init', function () { t396_init('910923610'); }); });</script>
                 <!-- /T396 -->
             </div>
@@ -6937,8 +6992,7 @@
                             style="top: 323px; left: 831px; width: 331px; height: 65px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true"> <a class="tn-atom" href="#popup:myform" role="button"
                                 aria-haspopup="dialog">
-                                <div class="tn-atom__button-content"> <span class="tn-atom__button-text">Batafsil
-                                        ma’lumot</span> </div> <span class="tn-atom__button-border"></span>
+                                <div class="tn-atom__button-content"> <span class="tn-atom__button-text">1400000 so'm</span> </div> <span class="tn-atom__button-border"></span>
                             </a> </div>
                         <div class="t396__elem tn-elem tn-elem__9082179761742678429590 t-animate t-animate_wait"
                             data-elem-id="1742678429590" data-elem-type="button" data-field-top-value="323"
@@ -6954,8 +7008,8 @@
                             style="top: 323px; left: 438px; width: 331px; height: 65px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true"> <a class="tn-atom" href="#popup:myform" role="button"
                                 aria-haspopup="dialog">
-                                <div class="tn-atom__button-content"> <span class="tn-atom__button-text">Batafsil
-                                        ma’lumot</span> </div> <span class="tn-atom__button-border"></span>
+                                <div class="tn-atom__button-content"> <span class="tn-atom__button-text">1000000
+                                        so'm</span> </div> <span class="tn-atom__button-border"></span>
                             </a> </div>
                         <div class="t396__elem tn-elem tn-elem__9082179761742678429589 t-animate t-animate_wait"
                             data-elem-id="1742678429589" data-elem-type="text" data-field-top-value="183"
@@ -7110,8 +7164,8 @@
                             style="top: 324px; left: 44px; width: 331px; height: 65px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true"> <a class="tn-atom" href="#popup:myform" role="button"
                                 aria-haspopup="dialog">
-                                <div class="tn-atom__button-content"> <span class="tn-atom__button-text">Batafsil
-                                        ma’lumot</span> </div> <span class="tn-atom__button-border"></span>
+                                <div class="tn-atom__button-content"> <span class="tn-atom__button-text">1000000
+                                        so'm</span> </div> <span class="tn-atom__button-border"></span>
                             </a> </div>
                         <div class="t396__elem tn-elem tn-elem__9082179761742850229029" data-elem-id="1742850229029"
                             data-elem-type="shape" data-field-top-value="-458" data-field-left-value="580"
@@ -10057,7 +10111,7 @@
                             data-field-widthmode-res-375-value="fixed"
                             data-fields="top,left,width,height,container,axisx,axisy,caption,leftunits,topunits"
                             style="top: 9px; left: 453px; width: 301px; height: 74px; transform: unset; transition-duration: 0.7s;"
-                            data-observer-ready="true"> <a class="tn-atom" href="https://yuksalishmaktabi.uz/vacancy">
+                            data-observer-ready="true">
                     </div>
                 </div>
                 <script>t_onReady(function () { t_onFuncLoad('t396_init', function () { t396_init('1065639336'); }); });</script>
@@ -12670,4 +12724,3 @@
     </style>
 
     <x-footer />
-</x-header>
