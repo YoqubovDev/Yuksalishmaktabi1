@@ -21,19 +21,12 @@
                     <div class="bg-[#f69a51] p-2 rounded-full mr-3 shadow-md shadow-[#f69a51]/20">
                         <i class="fas fa-phone-alt text-white"></i>
                     </div>
-                    <div>
-                        <div class="text-gray-400 text-xs font-semibold uppercase tracking-wider">Telefon</div>
-                        <a href="tel:+998910040785" class="text-white hover:text-[#f69a51] transition-colors duration-300 font-bold">(+998) 91-004-07-85</a>
-                    </div>
+                    
                 </div>
 
                 <div class="flex items-center bg-white bg-opacity-5 rounded-lg px-4 py-3 border border-white border-opacity-5 shadow-sm">
                     <div class="bg-[#f69a51] p-2 rounded-full mr-3 shadow-md shadow-[#f69a51]/20">
                         <i class="fas fa-envelope text-white"></i>
-                    </div>
-                    <div>
-                        <div class="text-gray-400 text-xs font-semibold uppercase tracking-wider">Email</div>
-                        <a href="mailto:info@turinal.uz" class="text-white hover:text-[#f69a51] transition-colors duration-300 font-bold">info@turinal.uz</a>
                     </div>
                 </div>
             </div>

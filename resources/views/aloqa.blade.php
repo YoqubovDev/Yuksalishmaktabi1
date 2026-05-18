@@ -261,35 +261,37 @@
                 </p>
                 
                 <!-- Form -->
-                <form onsubmit="event.preventDefault(); showToast(); this.reset();" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-center bg-white bg-opacity-10 p-6 rounded-2xl backdrop-blur-md border border-white border-opacity-10 shadow-inner">
+                <!-- Form -->
+                <form id="enrollment-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-center bg-white bg-opacity-10 p-6 rounded-2xl backdrop-blur-md border border-white border-opacity-10 shadow-inner">
+                    @csrf
                     <!-- Ism -->
                     <div class="bg-white rounded-xl px-4 py-2.5 shadow-sm border border-transparent focus-within:ring-2 focus-within:ring-amber-500 transition-all duration-300">
-                        <input type="text" id="ism" placeholder="Ism" required
+                        <input type="text" id="ism" name="first_name" placeholder="Ism" required
                             class="w-full bg-transparent text-gray-800 placeholder-gray-400 font-semibold focus:outline-none p-0 border-none py-1">
                     </div>
                     
                     <!-- Familiya -->
                     <div class="bg-white rounded-xl px-4 py-2.5 shadow-sm border border-transparent focus-within:ring-2 focus-within:ring-amber-500 transition-all duration-300">
-                        <input type="text" id="familiya" placeholder="Familiya" required
+                        <input type="text" id="familiya" name="last_name" placeholder="Familiya" required
                             class="w-full bg-transparent text-gray-800 placeholder-gray-400 font-semibold focus:outline-none p-0 border-none py-1">
                     </div>
                     
                     <!-- Sinf -->
                     <div class="bg-white rounded-xl px-4 py-2.5 shadow-sm border border-transparent focus-within:ring-2 focus-within:ring-amber-500 relative transition-all duration-300">
-                        <select id="sinf" required
+                        <select id="sinf" name="class" required
                             class="w-full bg-transparent text-gray-800 font-semibold focus:outline-none p-0 border-none py-1 appearance-none cursor-pointer pr-8">
                             <option value="" disabled selected class="text-gray-400">Sinf</option>
-                            <option value="1">1-sinf</option>
-                            <option value="2">2-sinf</option>
-                            <option value="3">3-sinf</option>
-                            <option value="4">4-sinf</option>
-                            <option value="5">5-sinf</option>
-                            <option value="6">6-sinf</option>
-                            <option value="7">7-sinf</option>
-                            <option value="8">8-sinf</option>
-                            <option value="9">9-sinf</option>
-                            <option value="10">10-sinf</option>
-                            <option value="11">11-sinf</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
                             <i class="fas fa-chevron-down text-sm"></i>
@@ -301,7 +303,7 @@
                         <span class="block text-[10px] font-bold text-gray-400 uppercase tracking-wider leading-none">Telefon raqam</span>
                         <div class="flex items-center mt-1">
                             <span class="text-gray-800 font-bold mr-1 leading-none">+998</span>
-                            <input type="tel" id="phone" placeholder="" required pattern="[0-9]{9}" maxlength="9"
+                            <input type="tel" id="phone" name="phone" placeholder="" required pattern="[0-9]{9}" maxlength="9"
                                 class="w-full bg-transparent text-gray-800 font-bold focus:outline-none p-0 border-none leading-none">
                         </div>
                     </div>
@@ -332,7 +334,7 @@
         </button>
     </div>
 
-    <!-- Script to Trigger Toast -->
+    <!-- Script to Trigger Toast and Handle Submit -->
     <script>
         function showToast() {
             const toast = document.getElementById('success-toast');
@@ -356,6 +358,44 @@
             toast.classList.remove('translate-y-0', 'opacity-100');
             toast.classList.add('translate-y-[-150%]', 'opacity-0', 'pointer-events-none');
         }
+
+        document.getElementById('enrollment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Yuborilmoqda...';
+
+            const formData = new FormData(this);
+            fetch('{{ route("contact.store_enrollment") }}', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    showToast();
+                    this.reset();
+                } else {
+                    alert('Xatolik yuz berdi. Iltimos qaytadan urinib ko\'ring.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Muvaffaqiyatli yuborilmadi. Tarmoq xatoligi.');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Ariza qoldirish';
+            });
+        });
     </script>
 
     <!-- Footer (agar kerak bo'lsa qo'shing) -->

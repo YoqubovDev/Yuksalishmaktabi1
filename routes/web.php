@@ -22,6 +22,7 @@ Route::get('/dars', [GroupController::class, 'index'])->name('subject');
 Route::get('/photo', [VideoController::class, 'index'])->name('photo');
 Route::get('/achievements', [PhotocardController::class,'index'])->name('achievements');
 Route::get('/aloqa', [ContactController::class, 'index'])->name('contact');
+Route::post('/aloqa/ariza', [ContactController::class, 'storeEnrollment'])->name('contact.store_enrollment');
 
 
 

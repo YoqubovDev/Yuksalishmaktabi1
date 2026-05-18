@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Enrollment;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -74,5 +75,33 @@ class ContactController extends Controller
         $contact->delete();
 
         return redirect()->route('contact')->with('success', 'Aloqa ma\'lumotlari o\'chirildi!');
+    }
+
+    public function storeEnrollment(Request $request)
+    {
+        $validated = $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name'  => 'required|string|max:255',
+            'class'      => 'required|string|max:50',
+            'phone'      => 'required|string|max:50',
+        ]);
+
+        // Prepend '+998' if phone doesn't have it, since input has '+998' label prepended in frontend
+        $phone = $validated['phone'];
+        if (!str_starts_with($phone, '+998')) {
+            $phone = '+998' . $phone;
+        }
+
+        Enrollment::create([
+            'first_name' => $validated['first_name'],
+            'last_name'  => $validated['last_name'],
+            'class'      => $validated['class'] . '-sinf',
+            'phone'      => $phone,
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Arizangiz muvaffaqiyatli qabul qilindi!'
+        ]);
     }
 }

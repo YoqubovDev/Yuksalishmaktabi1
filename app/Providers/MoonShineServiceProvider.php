@@ -25,6 +25,7 @@ use App\MoonShine\Resources\Video\VideoResource;
 use App\MoonShine\Resources\AboutStatic\AboutStaticResource;
 use App\MoonShine\Resources\TeacherStats\TeacherStatsResource;
 use App\MoonShine\Resources\ExamStats\ExamStatsResource;
+use App\MoonShine\Resources\Enrollment\EnrollmentResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -52,6 +53,7 @@ class MoonShineServiceProvider extends ServiceProvider
                 AboutStaticResource::class,
                 TeacherStatsResource::class,
                 ExamStatsResource::class,
+                EnrollmentResource::class,
             ])
             ->pages([
                 ...$core->getConfig()->getPages(),

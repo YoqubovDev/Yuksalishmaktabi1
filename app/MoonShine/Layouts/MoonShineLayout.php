@@ -28,6 +28,7 @@ use App\MoonShine\Resources\AboutStatic\AboutStaticResource;
 use App\MoonShine\Resources\TeacherStats\TeacherStatsResource;
 use App\MoonShine\Resources\ExamStats\ExamStatsResource;
 use MoonShine\Laravel\Components\Layout\Profile;
+use App\MoonShine\Resources\Enrollment\EnrollmentResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -88,6 +89,7 @@ final class MoonShineLayout extends AppLayout
             ])->icon("trophy"),
 
             MenuItem::make(ContactResource::class)->icon('phone'),
+            MenuItem::make(EnrollmentResource::class)->icon('envelope'),
 
 
 
