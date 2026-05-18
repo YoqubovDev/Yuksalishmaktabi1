@@ -354,12 +354,83 @@
     </style>
     <style>
         :root {
-            --primary-color: #0a4480;
-            --secondary-color: #1a6cb4;
+            --primary-color: #f69a51;
+            --secondary-color: #e07f35;
             --text-color: #333;
             --light-bg: #f5f7fa;
             --white: #ffffff;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Global Brand Orange Color Theme Overrides */
+        .bg-blue-900,
+        .bg-blue-800,
+        .bg-blue-700,
+        .bg-blue-600, 
+        .bg-blue-500,
+        .bg-indigo-600,
+        .bg-gradient-to-r.from-blue-600.to-blue-700,
+        .bg-gradient-to-br.from-blue-400.to-blue-600,
+        .bg-gradient-to-b.from-blue-900.to-blue-800 {
+            background-color: #f69a51 !important;
+            background-image: none !important;
+        }
+        
+        .hover\:bg-blue-700:hover, 
+        .hover\:bg-blue-800:hover,
+        .hover\:bg-blue-900:hover,
+        .group:hover .group-hover\:bg-blue-700 {
+            background-color: #e07f35 !important;
+            background-image: none !important;
+        }
+        
+        .text-blue-900,
+        .text-blue-800,
+        .text-blue-700,
+        .text-blue-600, 
+        .text-blue-500,
+        .text-indigo-600 {
+            color: #f69a51 !important;
+        }
+        
+        .border-blue-900,
+        .border-blue-800,
+        .border-blue-700,
+        .border-blue-600, 
+        .border-blue-500,
+        .border-indigo-600 {
+            border-color: #f69a51 !important;
+        }
+        
+        .bg-blue-50 {
+            background-color: #fdf5ef !important;
+        }
+        
+        .text-blue-50 {
+            color: #fdf5ef !important;
+        }
+
+        /* Achievements, news, and teachers button tweaks */
+        .bg-blue-600.text-white, .bg-blue-600.hover\:bg-blue-700 {
+            background-color: #f69a51 !important;
+        }
+
+        .bg-blue-600.text-white:hover, .bg-blue-600.hover\:bg-blue-700:hover {
+            background-color: #e07f35 !important;
+        }
+
+        /* Success alerts and checkmarks */
+        .bg-emerald-500, .bg-green-600, .bg-green-500 {
+            background-color: #f69a51 !important;
+        }
+        
+        .border-emerald-100 {
+            border-color: #fdf5ef !important;
+        }
+
+        .shadow-emerald-200 {
+            --tw-shadow-color: rgba(246, 154, 81, 0.2) !important;
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color) !important;
         }
 
         * {
@@ -481,7 +552,7 @@
         }
 
         nav a:hover {
-            color: #b8d8ff;
+            color: #fdf5ef;
         }
 
         /* Mobile Navigation Styles */
@@ -500,7 +571,7 @@
                 left: 0;
                 right: 0;
                 width: 100%;
-                background-color: rgba(10, 68, 128, 0.95);
+                background-color: rgba(246, 154, 81, 0.98);
                 backdrop-filter: blur(10px);
                 transform: translateY(-100%);
                 transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);

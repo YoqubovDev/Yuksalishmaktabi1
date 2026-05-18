@@ -231,12 +231,12 @@
                                                     @media (hover:hover) {
                                                         #rec910794445 .t-btnflex.t-btnflex_type_button:not(.t-animate_no-hover):hover {
                                                             color: #202020 !important;
-                                                            background-color: #cef374 !important;
+                                                            background-color: #fdf5ef !important;
                                                         }
 
                                                         #rec910794445 .t-btnflex.t-btnflex_type_button:not(.t-animate_no-hover):focus-visible {
                                                             color: #202020 !important;
-                                                            background-color: #cef374 !important;
+                                                            background-color: #fdf5ef !important;
                                                         }
                                                     }
                                                 </style>
@@ -4777,8 +4777,8 @@
                             style="left: 23px; top: 530px; width: 377px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img"
-                                    data-original="https://static.tildacdn.one/tild6236-3832-4461-b865-376364333563/Frame_2087326423.svg"
-                                    src="https://static.tildacdn.one/tild6236-3832-4461-b865-376364333563/Frame_2087326423.svg"
+                                    data-original="/image/highlight1.svg"
+                                    src="/image/highlight1.svg"
                                     alt="" imgfield="tn_img_1742674559337"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082005221742674647935 t-animate t-animate_wait"
@@ -4797,8 +4797,8 @@
                             style="left: 806px; top: 411px; width: 377px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img"
-                                    data-original="https://static.tildacdn.one/tild6636-3566-4363-a439-646661623536/Frame_2087326422.svg"
-                                    src="https://static.tildacdn.one/tild6636-3566-4363-a439-646661623536/Frame_2087326422.svg"
+                                    data-original="/image/highlight2.svg"
+                                    src="/image/highlight2.svg"
                                     alt="" imgfield="tn_img_1742674647935"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082005221742674642670 t-animate t-animate_wait"
@@ -4818,8 +4818,8 @@
                             style="left: 806px; top: 293px; width: 377px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img loaded"
-                                    data-original="https://static.tildacdn.one/tild6439-6334-4531-b865-336532306230/Frame_2087326421.svg"
-                                    src="https://static.tildacdn.one/tild6439-6334-4531-b865-336532306230/Frame_2087326421.svg"
+                                    data-original="/image/highlight3.svg"
+                                    src="/image/highlight3.svg"
                                     alt="" imgfield="tn_img_1742674642670"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082005221742674637900 t-animate t-animate_wait"
@@ -4838,8 +4838,8 @@
                             style="left: 806px; top: 175px; width: 377px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img loaded"
-                                    data-original="https://static.tildacdn.one/tild3539-3164-4163-a134-613765613334/Frame_2087326420.svg"
-                                    src="https://static.tildacdn.one/tild3539-3164-4163-a134-613765613334/Frame_2087326420.svg"
+                                    data-original="/image/highlight4.svg"
+                                    src="/image/highlight4.svg"
                                     alt="" imgfield="tn_img_1742674637900"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082005221742674608934 t-animate t-animate_wait"
@@ -4858,8 +4858,8 @@
                             style="left: 806px; top: 57px; width: 377px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img loaded"
-                                    data-original="https://static.tildacdn.one/tild6231-6263-4362-b535-303161343738/Frame_2087326419.svg"
-                                    src="https://static.tildacdn.one/tild6231-6263-4362-b535-303161343738/Frame_2087326419.svg"
+                                    data-original="/image/highlight5.svg"
+                                    src="/image/highlight5.svg"
                                     alt="" imgfield="tn_img_1742674608934"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082005221742674693643 t-animate t-animate_wait"
@@ -4879,8 +4879,8 @@
                             style="left: 23px; top: 177px; width: 377px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img loaded"
-                                    data-original="https://static.tildacdn.one/tild3634-3737-4462-a161-396539656436/Frame_2087326415.svg"
-                                    src="https://static.tildacdn.one/tild3634-3737-4462-a161-396539656436/Frame_2087326415.svg"
+                                    data-original="/image/highlight6.svg"
+                                    src="/image/highlight6.svg"
                                     alt="" imgfield="tn_img_1742674693643"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082005221742674693636 t-animate t-animate_wait"
@@ -4900,8 +4900,8 @@
                             style="left: 23px; top: 295px; width: 377px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img loaded"
-                                    data-original="https://static.tildacdn.one/tild3431-3935-4164-a537-313732353932/Frame_2087326416.svg"
-                                    src="https://static.tildacdn.one/tild3431-3935-4164-a537-313732353932/Frame_2087326416.svg"
+                                    data-original="/image/highlight7.svg"
+                                    src="/image/highlight7.svg"
                                     alt="" imgfield="tn_img_1742674693636"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082005221742674693628 t-animate t-animate_wait"
@@ -4920,8 +4920,8 @@
                             style="left: 23px; top: 413px; width: 377px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img"
-                                    data-original="https://static.tildacdn.one/tild3238-3333-4363-b263-666237303963/Frame_2087326417.svg"
-                                    src="https://static.tildacdn.one/tild3238-3333-4363-b263-666237303963/Frame_2087326417.svg"
+                                    data-original="/image/highlight8.svg"
+                                    src="/image/highlight8.svg"
                                     alt="" imgfield="tn_img_1742674693628"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082005221742674693648 t-animate t-animate_wait"
@@ -4941,8 +4941,8 @@
                             style="left: 23px; top: 59px; width: 377px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img loaded"
-                                    data-original="https://static.tildacdn.one/tild3463-3864-4561-b833-333031633731/Frame_2087326411.svg"
-                                    src="https://static.tildacdn.one/tild3463-3864-4561-b833-333031633731/Frame_2087326411.svg"
+                                    data-original="/image/highlight9.svg"
+                                    src="/image/highlight9.svg"
                                     alt="" imgfield="tn_img_1742674693648"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082005221742674800460 t-animate t-animate_wait"
@@ -5734,7 +5734,7 @@
                     }
 
                     #rec908217976 .tn-elem[data-elem-id="1742678275099"] {
-                        color: #0d9410;
+                        color: #f69a51;
                         text-align: center;
                         z-index: 10;
                         top: 323px;
@@ -5746,7 +5746,7 @@
                     }
 
                     #rec908217976 .tn-elem[data-elem-id="1742678275099"] .tn-atom {
-                        color: #0d9410;
+                        color: #f69a51;
                         font-size: 18px;
                         font-family: 'AeonikPro', Arial, sans-serif;
                         line-height: 1.55;
@@ -5757,7 +5757,7 @@
                         transition: background-color var(--t396-speedhover, 0s) ease-in-out, color var(--t396-speedhover, 0s) ease-in-out, border-color var(--t396-speedhover, 0s) ease-in-out, box-shadow var(--t396-shadowshoverspeed, 0.2s) ease-in-out;
                         --t396-bgcolor-color: #ffffff;
                         --t396-bgcolor-image: none;
-                        --t396-bgcolor-hover-color: #cef374;
+                        --t396-bgcolor-hover-color: #fdf5ef;
                         --t396-bgcolor-hover-image: none;
                         background-color: var(--t396-bgcolor-color, transparent);
                         -webkit-box-pack: center;
@@ -5771,7 +5771,7 @@
 
                     #rec908217976 .tn-elem[data-elem-id="1742678275099"] .tn-atom .tn-atom__button-text {
                         transition: color var(--t396-speedhover, 0s) ease-in-out;
-                        color: #0d9410;
+                        color: #f69a51;
                     }
 
                     #rec908217976 .tn-elem[data-elem-id="1742678275099"] .tn-atom .tn-atom__button-border::before {
@@ -5971,7 +5971,7 @@
                     }
 
                     #rec908217976 .tn-elem[data-elem-id="1742678429590"] {
-                        color: #0d9410;
+                        color: #f69a51;
                         text-align: center;
                         z-index: 11;
                         top: 323px;
@@ -5983,7 +5983,7 @@
                     }
 
                     #rec908217976 .tn-elem[data-elem-id="1742678429590"] .tn-atom {
-                        color: #0d9410;
+                        color: #f69a51;
                         font-size: 18px;
                         font-family: 'AeonikPro', Arial, sans-serif;
                         line-height: 1.55;
@@ -5994,7 +5994,7 @@
                         transition: background-color var(--t396-speedhover, 0s) ease-in-out, color var(--t396-speedhover, 0s) ease-in-out, border-color var(--t396-speedhover, 0s) ease-in-out, box-shadow var(--t396-shadowshoverspeed, 0.2s) ease-in-out;
                         --t396-bgcolor-color: #ffffff;
                         --t396-bgcolor-image: none;
-                        --t396-bgcolor-hover-color: #cef374;
+                        --t396-bgcolor-hover-color: #fdf5ef;
                         --t396-bgcolor-hover-image: none;
                         background-color: var(--t396-bgcolor-color, transparent);
                         -webkit-box-pack: center;
@@ -6008,7 +6008,7 @@
 
                     #rec908217976 .tn-elem[data-elem-id="1742678429590"] .tn-atom .tn-atom__button-text {
                         transition: color var(--t396-speedhover, 0s) ease-in-out;
-                        color: #0d9410;
+                        color: #f69a51;
                     }
 
                     #rec908217976 .tn-elem[data-elem-id="1742678429590"] .tn-atom .tn-atom__button-border::before {
@@ -6574,7 +6574,7 @@
                     }
 
                     #rec908217976 .tn-elem[data-elem-id="1742678378307"] {
-                        color: #0d9410;
+                        color: #f69a51;
                         text-align: center;
                         z-index: 20;
                         top: 324px;
@@ -6586,7 +6586,7 @@
                     }
 
                     #rec908217976 .tn-elem[data-elem-id="1742678378307"] .tn-atom {
-                        color: #0d9410;
+                        color: #f69a51;
                         font-size: 18px;
                         font-family: 'AeonikPro', Arial, sans-serif;
                         line-height: 1.55;
@@ -6597,7 +6597,7 @@
                         transition: background-color var(--t396-speedhover, 0s) ease-in-out, color var(--t396-speedhover, 0s) ease-in-out, border-color var(--t396-speedhover, 0s) ease-in-out, box-shadow var(--t396-shadowshoverspeed, 0.2s) ease-in-out;
                         --t396-bgcolor-color: #ffffff;
                         --t396-bgcolor-image: none;
-                        --t396-bgcolor-hover-color: #cef374;
+                        --t396-bgcolor-hover-color: #fdf5ef;
                         --t396-bgcolor-hover-image: none;
                         background-color: var(--t396-bgcolor-color, transparent);
                         -webkit-box-pack: center;
@@ -6611,7 +6611,7 @@
 
                     #rec908217976 .tn-elem[data-elem-id="1742678378307"] .tn-atom .tn-atom__button-text {
                         transition: color var(--t396-speedhover, 0s) ease-in-out;
-                        color: #0d9410;
+                        color: #f69a51;
                     }
 
                     #rec908217976 .tn-elem[data-elem-id="1742678378307"] .tn-atom .tn-atom__button-border::before {
@@ -6862,8 +6862,8 @@
                             style="left: 811px; top: 22px; width: 374px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img"
-                                    data-original="https://static.tildacdn.one/tild3661-3632-4830-b338-636431386336/Frame_2087326465.svg"
-                                    src="https://static.tildacdn.one/tild3661-3632-4830-b338-636431386336/Frame_2087326465.svg"
+                                    data-original="/image/card_bg.svg"
+                                    src="/image/card_bg.svg"
                                     alt="" imgfield="tn_img_1742673104069"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082179761742673117820 t-animate t-animate_wait"
@@ -6883,8 +6883,8 @@
                             style="left: 417px; top: 22px; width: 374px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img"
-                                    data-original="https://static.tildacdn.one/tild3035-3835-4134-a238-613236303436/Frame_2087326465.svg"
-                                    src="https://static.tildacdn.one/tild3035-3835-4134-a238-613236303436/Frame_2087326465.svg"
+                                    data-original="/image/card_bg.svg"
+                                    src="/image/card_bg.svg"
                                     alt="" imgfield="tn_img_1742673117820"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082179761742673115144 t-animate t-animate_wait"
@@ -6903,8 +6903,8 @@
                             style="left: 23px; top: 22px; width: 374px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img"
-                                    data-original="https://static.tildacdn.one/tild3332-3134-4532-a538-626130636138/Frame_2087326465.svg"
-                                    src="https://static.tildacdn.one/tild3332-3134-4532-a538-626130636138/Frame_2087326465.svg"
+                                    data-original="/image/card_bg.svg"
+                                    src="/image/card_bg.svg"
                                     alt="" imgfield="tn_img_1742673115144"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082179761742673249632 t-animate t-animate_wait"
@@ -6923,8 +6923,8 @@
                             style="left: 831px; top: 42px; width: 60px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img"
-                                    data-original="https://static.tildacdn.one/tild3030-6530-4430-b864-303761326365/MingcuteBriefcase82F.svg"
-                                    src="https://static.tildacdn.one/tild3030-6530-4430-b864-303761326365/MingcuteBriefcase82F.svg"
+                                    data-original="/image/card_cap_icon.svg"
+                                    src="/image/card_cap_icon.svg"
                                     alt="" imgfield="tn_img_1742673249632"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082179761742673427530 t-animate t-animate_wait"
@@ -7076,8 +7076,8 @@
                             style="left: 438px; top: 42px; width: 60px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img"
-                                    data-original="https://static.tildacdn.one/tild3030-6530-4430-b864-303761326365/MingcuteBriefcase82F.svg"
-                                    src="https://static.tildacdn.one/tild3030-6530-4430-b864-303761326365/MingcuteBriefcase82F.svg"
+                                    data-original="/image/card_cap_icon.svg"
+                                    src="/image/card_cap_icon.svg"
                                     alt="" imgfield="tn_img_1742678429579"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082179761742678378304 t-animate t-animate_wait"
@@ -7146,8 +7146,8 @@
                             style="left: 44px; top: 39px; width: 60px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img"
-                                    data-original="https://static.tildacdn.one/tild3030-6530-4430-b864-303761326365/MingcuteBriefcase82F.svg"
-                                    src="https://static.tildacdn.one/tild3030-6530-4430-b864-303761326365/MingcuteBriefcase82F.svg"
+                                    data-original="/image/card_cap_icon.svg"
+                                    src="/image/card_cap_icon.svg"
                                     alt="" imgfield="tn_img_1742678378285"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082179761742678378307 t-animate t-animate_wait"
@@ -12057,8 +12057,8 @@
                             style="left: 716px; top: 1358px; width: 60px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img"
-                                    data-original="https://static.tildacdn.one/tild3963-3662-4333-b664-386262346239/MingcuteBriefcase2Fi.svg"
-                                    src="https://static.tildacdn.one/tild3963-3662-4333-b664-386262346239/MingcuteBriefcase2Fi.svg"
+                                    data-original="/image/step6.svg"
+                                    src="/image/step6.svg"
                                     alt="" imgfield="tn_img_1742803963802"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082410731742805205710 t-animate t-animate_wait"
@@ -12143,8 +12143,8 @@
                             style="left: 718px; top: 917px; width: 60px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img"
-                                    data-original="https://static.tildacdn.one/tild3437-6331-4163-b562-653664643066/MingcuteBriefcase2Fi.svg"
-                                    src="https://static.tildacdn.one/tild3437-6331-4163-b562-653664643066/MingcuteBriefcase2Fi.svg"
+                                    data-original="/image/step5.svg"
+                                    src="/image/step5.svg"
                                     alt="" imgfield="tn_img_1742805723269"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082410731742805525369 t-animate t-animate_wait"
@@ -12194,8 +12194,8 @@
                             style="left: 719px; top: 476px; width: 60px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img"
-                                    data-original="https://static.tildacdn.one/tild3430-3363-4130-b566-326162653237/MingcuteBriefcase2Fi.svg"
-                                    src="https://static.tildacdn.one/tild3430-3363-4130-b566-326162653237/MingcuteBriefcase2Fi.svg"
+                                    data-original="/image/step4.svg"
+                                    src="/image/step4.svg"
                                     alt="" imgfield="tn_img_1742805525347"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082410731742805382385 t-animate t-animate_wait"
@@ -12247,8 +12247,8 @@
                             style="left: 45px; top: 1143px; width: 60px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img"
-                                    data-original="https://static.tildacdn.one/tild6565-6266-4330-a335-346231303637/MingcuteBriefcase2Fi.svg"
-                                    src="https://static.tildacdn.one/tild6565-6266-4330-a335-346231303637/MingcuteBriefcase2Fi.svg"
+                                    data-original="/image/step3.svg"
+                                    src="/image/step3.svg"
                                     alt="" imgfield="tn_img_1742805382367"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082410731742805686417 t-animate t-animate_wait"
@@ -12265,8 +12265,8 @@
                             style="left: 44px; top: 700px; width: 60px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img"
-                                    data-original="https://static.tildacdn.one/tild6664-6139-4865-b831-326138623461/MingcuteBriefcase2Fi.svg"
-                                    src="https://static.tildacdn.one/tild6664-6139-4865-b831-326138623461/MingcuteBriefcase2Fi.svg"
+                                    data-original="/image/step2.svg"
+                                    src="/image/step2.svg"
                                     alt="" imgfield="tn_img_1742805686417"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082410731742805686411 t-animate t-animate_wait"
@@ -12317,8 +12317,8 @@
                             style="left: 44px; top: 268px; width: 60px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true">
                             <div class="tn-atom"> <img class="tn-atom__img t-img"
-                                    data-original="https://static.tildacdn.one/tild3566-6538-4334-b039-313638343066/MingcuteBriefcase2Fi.svg"
-                                    src="https://static.tildacdn.one/tild3566-6538-4334-b039-313638343066/MingcuteBriefcase2Fi.svg"
+                                    data-original="/image/step1.svg"
+                                    src="/image/step1.svg"
                                     alt="" imgfield="tn_img_1742805485290"> </div>
                         </div>
                         <div class="t396__elem tn-elem tn-elem__9082410731742805485286 t-animate t-animate_wait"
