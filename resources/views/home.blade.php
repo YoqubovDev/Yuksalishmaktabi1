@@ -6992,7 +6992,7 @@
                             style="top: 323px; left: 831px; width: 331px; height: 65px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true"> <a class="tn-atom" href="#popup:myform" role="button"
                                 aria-haspopup="dialog">
-                                <div class="tn-atom__button-content"> <span class="tn-atom__button-text">1400000 so'm</span> </div> <span class="tn-atom__button-border"></span>
+                                <div class="tn-atom__button-content"> <span class="tn-atom__button-text">2,890,000 so'm</span> </div> <span class="tn-atom__button-border"></span>
                             </a> </div>
                         <div class="t396__elem tn-elem tn-elem__9082179761742678429590 t-animate t-animate_wait"
                             data-elem-id="1742678429590" data-elem-type="button" data-field-top-value="323"
@@ -7008,7 +7008,7 @@
                             style="top: 323px; left: 438px; width: 331px; height: 65px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true"> <a class="tn-atom" href="#popup:myform" role="button"
                                 aria-haspopup="dialog">
-                                <div class="tn-atom__button-content"> <span class="tn-atom__button-text">1000000
+                                <div class="tn-atom__button-content"> <span class="tn-atom__button-text">2,590,000
                                         so'm</span> </div> <span class="tn-atom__button-border"></span>
                             </a> </div>
                         <div class="t396__elem tn-elem tn-elem__9082179761742678429589 t-animate t-animate_wait"
@@ -7164,7 +7164,7 @@
                             style="top: 324px; left: 44px; width: 331px; height: 65px; transform: unset; transition-duration: 0.7s;"
                             data-observer-ready="true"> <a class="tn-atom" href="#popup:myform" role="button"
                                 aria-haspopup="dialog">
-                                <div class="tn-atom__button-content"> <span class="tn-atom__button-text">1000000
+                                <div class="tn-atom__button-content"> <span class="tn-atom__button-text">2,300,000
                                         so'm</span> </div> <span class="tn-atom__button-border"></span>
                             </a> </div>
                         <div class="t396__elem tn-elem tn-elem__9082179761742850229029" data-elem-id="1742850229029"
